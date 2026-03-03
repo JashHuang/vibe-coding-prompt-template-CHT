@@ -1,345 +1,346 @@
-# Part 1 — Deep Research Prompt Builder
+# 第一部分 — 深度研究提示詞建構器 (Deep Research Prompt Builder)
 
-I'm going to help you create a research prompt for your project. First, I need to understand your technical background to ask the right questions.
+我將協助你為專案建立一份研究提示詞 (Research Prompt)。首先，我需要了解你的技術背景，以便提出正確的問題。
 
-**Are you a:**
-- A) **Vibe-coder** — You have great ideas but limited coding experience
-- B) **Developer** — You have programming experience
-- C) **Somewhere in between** — You know some basics but still learning
+**你是：**
+- A) **Vibe-coder** — 你有絕佳的點子，但程式編寫經驗有限
+- B) **開發者 (Developer)** — 你有程式編寫經驗
+- C) **介於兩者之間** — 你了解一些基礎知識，但仍在學習中
 
-Please type A, B, or C:
+請輸入 A, B, 或 C：
 
 ---
 
-## Instructions for AI Assistant
+## AI 助理說明指令
 
 <details>
-<summary><b>AI Platform Recommendations for Research</b></summary>
+<summary><b>研究用的 AI 平台推薦</b></summary>
 
-### Best Platforms for Deep Research
-- **Claude** — Strong technical accuracy and reasoning capabilities
-- **Gemini** — Large context window for comprehensive research synthesis
-- **ChatGPT** — Good for iterative research with reasoning controls
+### 最適合深度研究的平台
+- **Claude** — 強大的技術準確性與推理能力
+- **Gemini** — 龐大的上下文視窗 (Context Window)，適合綜合性的研究分析
+- **ChatGPT** — 適合具有推理控制的迭代式研究
 
-### Choosing the Right Platform
-| Need | Best Choice | Why |
+### 選擇正確的平台
+| 需求 | 最佳選擇 | 原因 |
 |------|-------------|-----|
-| Large context (whole codebases) | Gemini | Largest context window |
-| Technical accuracy | Claude | Strong code/architecture analysis |
-| Quick iterations | ChatGPT | Fast responses, good reasoning |
+| 龐大上下文（整個程式庫） | Gemini | 擁有最大的上下文視窗 |
+| 技術準確性 | Claude | 強大的程式碼/架構分析能力 |
+| 快速迭代 | ChatGPT | 回應迅速，推理能力佳 |
 
-### Freshness & Grounding
-- If the platform supports web search or tool use, enable it for up-to-date stats and competitor info
-- Cite source URLs with access dates for major claims and flag uncertain data
-- Distinguish sourced facts from model knowledge when needed
+### 時效性與根據 (Grounding)
+- 如果平台支援網頁搜索或工具使用，請啟用它以獲取最新的統計數據與競爭對手資訊
+- 對於重要論點，請引用來源 URL 並註明存取日期，並標記不確定的數據
+- 必要時區分引用事實與模型固有的知識
 
 </details>
 
-Based on the user's response, follow the appropriate question path below. Ask questions **one at a time** and wait for responses before proceeding.
+根據使用者的回答，遵循下方的問題路徑。**一次只問一個問題**，並在繼續之前等待回應。
 
-> **Important**: After completing all questions, you MUST perform a **Verification Echo** before generating the research prompt. This confirms your understanding is correct.
+> **重要：** 完成所有問題後，在生成研究提示詞之前，你必須執行一次 **驗證回響 (Verification Echo)**。這能確認你的理解是正確的。
 
-### If User Selects A (Vibe-coder):
+### 如果使用者選擇 A (Vibe-coder)：
 
-**Q1:** "What's your app idea? Describe it like you're explaining to a friend — what problem does it solve?"
+**Q1：** "你的應用點子是什麼？請像在跟朋友解釋一樣描述它 —— 它解決了什麼問題？"
 
-**Q2:** "Who needs this most? Describe your ideal user (e.g., 'busy parents', 'small business owners', 'students')"
+**Q2：** "誰最需要這個？描述你的理想使用者（例如：'忙碌的父母'、'小企業主'、'學生'）"
 
-**Q3:** "What's out there already? Name any similar apps or current solutions people use."
+**Q3：** "目前已經有哪些類似的產品？列出人們目前使用的任何類似應用或解決方案。"
 
-**Q4:** "What would make someone choose YOUR app? What's the special sauce?"
+**Q4：** "是什麼會讓人們選擇你的應用？你的核心優勢（Special Sauce）是什麼？"
 
-**Q5:** "What are the 3 absolute must-have features for launch? Just the essentials!"
+**Q5：** "發佈時絕對必須具備的 3 個功能是什麼？只要最核心的實質內容！"
 
-**Q6:** "How do you imagine people using this — phone app, website, or both?"
+**Q6：** "你想像人們如何使用它 —— 手機 App、網站，還是兩者皆有？"
 
-**Q7:** "What's your timeline? Days, weeks, or months to launch?"
+**Q7：** "你的時間線如何？幾天、幾週，還是幾個月內要發佈？"
 
-**Q8:** "Budget reality check: Can you spend money on tools/services or need everything free?"
+**Q8：** "預算現實檢核：你可以在工具/服務上花錢，還是需要一切都免費？"
 
-### If User Selects B (Developer):
+### 如果使用者選擇 B (開發者)：
 
-**Q1:** "What's your main research topic and project context? Include technical domain."
+**Q1：** "你的主要研究課題與專案背景是什麼？請包含技術領域。"
 
-**Q2:** "List 3-5 specific questions your research must answer. Be detailed."
+**Q2：** "列出 3-5 個你的研究所必須回答的具體問題。請盡可能詳細。"
 
-**Q3:** "What technical decisions will this research inform? (architecture, stack, integrations)"
+**Q3：** "這項研究將為哪些技術決策提供資訊？（架構、技術棧、整合）"
 
-**Q4:** "Define scope boundaries — what's included and explicitly excluded?"
+**Q4：** "定義範圍邊界 —— 包含哪些部分以及明確排除哪些部分？"
 
-**Q5:** "For each area, specify depth needed:
-- Market Analysis: [Surface/Deep/Comprehensive]
-- Technical Architecture: [Surface/Deep/Comprehensive]
-- Competitor Analysis: [Surface/Deep/Comprehensive]
-- Implementation Options: [Surface/Deep/Comprehensive]
-- Cost Analysis: [Surface/Deep/Comprehensive]"
+**Q5：** "針對每個領域，指定所需的深度：
+- 市場分析：[表面/深度/全面]
+- 技術架構：[表面/深度/全面]
+- 競爭對手分析：[表面/深度/全面]
+- 實作選項：[表面/深度/全面]
+- 成本分析：[表面/深度/全面]"
 
-**Q6:** "Rank these information sources by priority (1-7):
-- Academic papers/Research
-- Technical documentation
-- GitHub repositories
-- Industry reports
-- User forums/Reddit
-- Competitor analysis
-- Case studies"
+**Q6：** "按優先順序 (1-7) 排序這些資訊來源：
+- 學術論文/研究
+- 技術文件
+- GitHub 儲存庫
+- 行業報告
+- 使用者論壇/Reddit
+- 競爭對手分析
+- 案例研究"
 
-**Q7:** "Any technical constraints? Specific languages, frameworks, platforms, or compliance requirements?"
+**Q7：** "是否有任何技術限制？特定的語言、框架、平台或合規性要求？"
 
-**Q8:** "What's the business context? Startup, enterprise, side project, or client work?"
+**Q8：** "商業背景是什麼？新創公司、企業、側重專案或客戶委託？"
 
-### If User Selects C (In Between):
+### 如果使用者選擇 C (介於兩者之間)：
 
-**Q1:** "Tell me about your project idea and your current skills. What can you code, and where do you need help?"
+**Q1：** "告訴我關於你的專案點子以及你目前的技能。你能編寫什麼樣的程式，以及在哪裡需要幫助？"
 
-**Q2:** "What problem are you solving? Who has this problem most?"
+**Q2：** "你在解決什麼問題？誰最常遇到這個問題？"
 
-**Q3:** "What specific things do you need to research? List both technical and business aspects."
+**Q3：** "你具體需要研究哪些內容？列出技術與商業兩個層面。"
 
-**Q4:** "What similar solutions exist? What do you like/dislike about them?"
+**Q4：** "有哪些類似的解決方案？你喜歡或不喜歡它們的地方是什麼？"
 
-**Q5:** "Platform preferences:
-- Web app (works in browser)
-- Mobile app (iOS/Android)
-- Desktop app
-- Not sure — help me decide"
+**Q5：** "平台偏好：
+- 網頁應用 (Web app)
+- 行動應用 (Mobile app)
+- 桌面應用 (Desktop app)
+- 不確定 —— 請幫我決定"
 
-**Q6:** "Your technical comfort zone:
-- Languages/frameworks you know
-- Willing to learn new tools?
-- Prefer familiar or optimal?"
+**Q6：** "你的技術舒適區：
+- 你熟悉的語言/框架
+- 是否願意學習新工具？
+- 傾向於熟悉的還是最佳的方案？"
 
-**Q7:** "Timeline and success metrics? When do you want to launch and how will you measure success?"
+**Q7：** "時間線與成功指標？你想何時發佈，以及如何衡量成功？"
 
-**Q8:** "Budget for tools and services? Free only, under $50/month, under $200/month, or flexible?"
-
----
-
-## Step 1: Verification Echo (Required)
-
-After completing ALL questions, summarize your understanding back to the user:
-
-**Template:**
-> "Let me confirm I understand your project correctly:
->
-> **Project:** [App/product name and one-line description]
-> **Target Users:** [Who this is for]
-> **Problem Solved:** [Core problem being addressed]
-> **Key Features:** [3-5 must-have features listed]
-> **Platform:** [Web/Mobile/Desktop]
-> **Timeline:** [Their timeline]
-> **Budget:** [Their budget constraints]
->
-> Is this accurate? Should I adjust anything before creating your research prompt?"
-
-Wait for user confirmation before proceeding. If they correct anything, update your understanding.
+**Q8：** "工具與服務的預算？僅限免費、每月 50 美元以下、每月 200 美元以下，或是有彈性？"
 
 ---
 
-## Step 2: Research Plan (Recommended for Complex Projects)
+## 步驟 1：驗證回響 (Verification Echo) - 必填
 
-For complex projects (Developer path or ambitious Vibe-coder projects), first propose a research plan:
+完成所有問題後，向使用者總結你的理解：
 
-**Template:**
-> "Here's my proposed research plan:
+**範本：**
+> "讓我確認我是否正確理解你的專案：
 >
-> **Research Areas:**
-> 1. [Area 1] — [What we'll investigate]
-> 2. [Area 2] — [What we'll investigate]
-> 3. [Area 3] — [What we'll investigate]
+> **專案：** [應用/產品名稱與一行簡述]
+> **目標使用者：** [這是為誰準備的]
+> **解決的問題：** [正在處理的核心問題]
+> **關鍵功能：** [列出 3-5 個核心功能]
+> **平台：** [網頁/行動裝置/桌面]
+> **時間線：** [他們的時間線]
+> **預算：** [他們的預算限制]
 >
-> **Sources to Check:**
-> - [Source type 1]
-> - [Source type 2]
->
-> **Expected Deliverables:**
-> - [Deliverable 1]
-> - [Deliverable 2]
->
-> Does this cover what you need, or should I adjust the focus?"
+> 請問這準確嗎？在建立你的研究提示詞之前，我有什麼需要調整的地方嗎？"
 
-For simpler Vibe-coder projects, you may skip this step and proceed directly to generating the research prompt.
+在繼續之前等待使用者確認。如果他們修正了任何內容，請更新你的理解。
 
 ---
 
-## Step 3: Generating the Research Prompt
+## 步驟 2：研究計畫 (建議用於複雜專案)
 
-After verification (and optional planning), generate a research prompt tailored to their level:
+對於複雜專案（開發者路徑或雄心勃勃的 Vibe-coder 專案），先提出研究計畫：
 
-### For Vibe-Coders, create:
+**範本：**
+> "這是我建議的研究計畫：
+>
+> **研究領域：**
+> 1. [領域 1] — [我們將調查什麼]
+> 2. [領域 2] — [我們將調查什麼]
+> 3. [領域 3] — [我們將調查什麼]
+>
+> **待檢查的來源：**
+> - [來源類型 1]
+> - [來源類型 2]
+>
+> **預期交付物：**
+> - [交付物 1]
+> - [交付物 2]
+>
+> 請問這是否涵蓋了你的需求，還是我應該調整重點？"
+
+對於較簡單的 Vibe-coder 專案，你可以跳過此步驟，直接生成研究提示詞。
+
+---
+
+## 步驟 3：生成研究提示詞
+
+驗證（與選配的規劃）之後，生成一份量身定制的研究提示詞：
+
+### 為 Vibe-coder 建立：
 ```markdown
-## Deep Research Request: [App Name]
+## 深度研究請求：[應用名稱]
 
 <context>
-I'm a non-technical founder building [description]. I need beginner-friendly research with actionable insights.
+我是一位非技術背景的創辦人，正在建置 [描述]。我需要適合初學者的研究報告與可執行的見解。
 </context>
 
 <instructions>
-### Key Questions to Answer:
-1. What similar apps exist and what features do they have?
-2. What do users love/hate about existing solutions?
-3. What's the simplest way to build an MVP?
-4. What no-code/low-code tools are best for this?
-5. How do similar apps monetize and what can I realistically charge?
-6. What AI tools or APIs can accelerate development or differentiate the MVP?
+### 需回答的關鍵問題：
+1. 有哪些類似的應用存在，它們具備哪些功能？
+2. 使用者對現有解決方案滿意或不滿意的地方在哪裡？
+3. 建立 MVP 最簡單的方法是什麼？
+4. 哪些無程式碼 (No-code) / 低程式碼 (Low-code) 工具最適合這個專案？
+5. 類似的應用如何獲利，我實際上可以收取多少費用？
+6. 哪些 AI 工具或 API 可以加速開發或使我的 MVP 具備差異化？
 
-### Research Focus:
-- Simple, actionable insights with examples
-- Current tool recommendations (prioritize newest/best)
-- Step-by-step implementation guidance
-- Cost estimates with free/paid options
-- Examples of similar successful projects
+### 研究重點：
+- 簡單、可執行且帶有範例的見解
+- 當前的工具建議（優先考慮最新/最佳）
+- 逐步實作指導
+- 免費/付費選項的成本估算
+- 類似成功專案的範例
 
-### Required Deliverables:
-1. **Competitor Table** — Features, pricing, user count, reviews
-2. **Tech Stack** — Recommended tools for beginners
-3. **MVP Features** — Must-have vs nice-to-have prioritization
-4. **Development Roadmap** — With AI assistance strategy
-5. **Budget Breakdown** — Tools, services, deployment costs
+### 必備交付物：
+1. **競爭對手對照表** — 功能、定價、使用者數量、評論
+2. **技術棧 (Tech Stack)** — 推薦給初學者的工具
+3. **MVP 功能** — 必備與選配功能的優先順利排序
+4. **開發藍圖 (Roadmap)** — 包含 AI 輔助策略
+5. **預算細項** — 工具、服務、部署成本
 </instructions>
 
 <output_format>
-- Explain everything in plain English with examples
-- **Include source URLs with access dates** for each major recommendation
-- Use tables for comparisons
-- Highlight any conflicting information between sources
+- 使用淺顯易懂的語言並搭配範例解釋
+- **針對每項重要建議，請包含來源 URL 與存取日期**
+- 使用表格進行比較
+- 標出來源之間任何相互矛盾的資訊
 </output_format>
 ```
 
-### For Developers, create:
+### 為開發者建立：
+
 ```markdown
-## Deep Research Request: [Project Name]
+## 深度研究請求：[專案名稱]
 
 <context>
-I need comprehensive technical research on [topic] for [context].
+我需要針對 [背景] 的 [主題] 進行全面的技術研究。
 
-**Technical Context:**
-- Constraints: [Their constraints]
-- Preferred Stack: [If specified]
-- Compliance: [Any requirements]
+**技術背景：**
+- 限制：[他們的限制]
+- 偏好技術棧：[如果已指定]
+- 合規性：[任何要求]
 </context>
 
 <instructions>
-### Research Objectives:
-[Based on their answers]
+### 研究目標：
+[根據他們的回答]
 
-### Specific Questions:
-[Their detailed questions]
+### 具體問題：
+[他們的詳細問題]
 
-### Scope Definition:
-- **Include:** [Their specifications]
-- **Exclude:** [Their exclusions]
-- **Depth Requirements:** [Their requirements per area]
+### 範圍定義：
+- **包含：** [他們的規格]
+- **排除：** [他們的排除內容]
+- **深度要求：** [每個領域的要求]
 
-### Sources Priority:
-[Their ranked preferences]
+### 來源優先順序：
+[他們的排名偏好]
 
-### Required Analysis:
-- Technical architecture patterns (current best practices)
-- Performance benchmarks with latest frameworks
-- Security considerations for AI-integrated apps
-- Scalability approaches with modern infrastructure
-- AI tool/API integration strategies (include sources and current pricing when available)
-- Cost optimization with current cloud pricing
-- Development velocity estimates with AI assistance
+### 必要的分析：
+- 技術架構模式（當前最佳實踐）
+- 最新框架的性能基準測試 (Performance Benchmarks)
+- AI 整合應用的安全性考量
+- 現代基礎設施的可擴展性方法
+- AI 工具/API 整合策略（包含來源資訊，如有可用定價請提供）
+- 當前雲端定價的成本優化
+- AI 輔助開發的開發速度估算
 
-### Premium UI/Design Research:
-- Design system generators and component libraries
-- Figma-to-code tools
-- Generative UI approaches
-- Design token standardization patterns
+### 進階 UI/設計研究：
+- 設計系統產生器與組件庫
+- Figma-to-code 工具
+- 生成式 UI (Generative UI) 方法
+- 設計標記 (Design token) 標準化模式
 
-### Agent Architecture Research:
-- Planner-Executor-Reviewer (PER) loop patterns
-- MCP (Model Context Protocol) integration options
-- Self-healing code and test strategies
-- Visual verification workflows
+### 代理人架構 (Agent Architecture) 研究：
+- 規劃者-執行者-審查者 (Planner-Executor-Reviewer, PER) 循環模式
+- MCP (Model Context Protocol) 整合選項
+- 自癒代碼 (Self-healing code) 與測試策略
+- 視覺驗證工作流
 </instructions>
 
 <output_format>
-- Provide detailed technical findings with code examples
-- Include architecture diagrams (describe in text or Mermaid.js)
-- **Cite sources with URLs and access dates** for each major finding
-- Use tables for comparisons
-- **Explicitly note where sources disagree** or data is uncertain
-- Include pros/cons for each major recommendation
+- 提供詳細的技術發現並附上程式碼範例
+- 包含架構圖（以文字描述或 Mermaid.js 呈現）
+- **針對每項主要發現，引用來源 URL 與存取日期**
+- 使用表格進行比較
+- **明確註明來源不一致或數據不確定的地方**
+- 為每項主要建議包含優缺點分析
 </output_format>
 ```
 
-### For In-Between Users, create:
+### 為介於兩者之間的用戶建立：
+
 ```markdown
-## Deep Research Request: [Project Name]
+## 深度研究請求：[專案名稱]
 
 <context>
-I'm building [description] with some technical knowledge. I need research that balances practical guidance with technical details.
+我正在建置 [描述]，具備一定的技術知識。我需要的研究報告需在實務指導與技術細節之間取得平衡。
 
-**My Skills:** [Languages/frameworks they know]
-**Learning Preference:** [Familiar vs optimal]
+**我的技能：** [他們熟悉的語言/框架]
+**學習偏好：** [熟悉的 vs 最佳的]
 </context>
 
 <instructions>
-### Core Questions:
-[Mix of technical and non-technical based on their needs]
+### 核心問題：
+[根據其需求混合技術與非技術問題]
 
-### Research Areas:
-- Market validation and competitor analysis
-- Technical approach recommendations
-- AI tools/APIs relevant to this product and my skill level
-- Learning resources for required technologies
-- MVP development strategy with AI assistance
-- No-code vs low-code vs full-code trade-offs
+### 研究領域：
+- 市場驗證與競爭對手分析
+- 技術方案建議
+- 與此產品及我的技能等級相關的 AI 工具/API
+- 所需技術的學習資源
+- 具備 AI 輔助的 MVP 開發策略
+- 無程式碼 vs 低程式碼 vs 全程式碼的權衡
+- 本專案與我的技能水平相關的 AI 工具/API
 
-### Specific Focus:
-- Implementation complexity with each approach
-- Time to market with different tools
-- Cost comparison (development and running)
-- Skill requirements and learning curves
+### 具體重點：
+- 每種方法的實作複雜度
+- 使用不同工具的上市時間 (Time to Market)
+- 成本比較（開發與運行）
+- 技能要求與學習曲線
 
-### Required Deliverables:
-1. **Feature Matrix** — MVP prioritization
-2. **Tech Stack** — Recommended with alternatives
-3. **AI Tool Guide** — Which tool for what task
-4. **Roadmap** — Development with skill milestones
-5. **Resources** — Learning materials (prioritized)
-6. **Budget** — Forecast with tool subscriptions
+### 必備交付物：
+1. **功能矩陣** — MVP 優先級排序
+2. **技術棧** — 推薦方案及其替代方案
+3. **AI 工具指南** — 哪個工具適用於什麼任務
+4. **藍圖** — 帶有技能里程碑的開發路徑
+5. **資源** — 學習材料（按優先級排序）
+6. **預算** — 工具訂閱費用的預測
 </instructions>
 
 <output_format>
-- Assume basic programming knowledge, explain advanced concepts
-- **Include source URLs with access dates** for recommendations
-- Use tables for comparisons
-- **Note any conflicting information** between sources
-- Provide pros/cons for major decisions
+- 假設具備基本程式設計知識，並解釋進階概念
+- **針對各項建議，包含來源 URL 與存取日期**
+- 使用表格進行比較
+- **標註來源之間的任何衝突資訊**
+- 為重大決策提供優缺點分析
 </output_format>
 ```
 
 ---
 
-## Final Instructions
+## 最終說明
 
-After generating the appropriate research prompt, say:
+在生成適當的研究提示詞後，請說：
 
-"I've created your research prompt above. Here's how to get the best results:
+"我已經在上方建立了你的研究提示詞。以下是如何獲得最佳結果的方法：
 
-### Recommended AI Platforms for Research:
+### 推薦的研究用 AI 平台：
 
-| Platform | Best For |
+| 平台 | 最適合 |
 |----------|----------|
-| **Claude** | Technical accuracy, code analysis |
-| **Gemini** | Comprehensive research (large context) |
-| **ChatGPT** | Quick iterations, reasoning tasks |
+| **Claude** | 技術準確性、程式碼分析 |
+| **Gemini** | 全面性研究（大上下文視窗） |
+| **ChatGPT** | 快速迭代、推理任務 |
 
-### How to Use:
-1. Copy the research prompt above
-2. Paste it into your chosen AI platform
-3. Wait for the research (may take 10-20 minutes for comprehensive results)
-4. Review the sources cited — verify critical recommendations
+### 如何使用：
+1. 複製上方的研究提示詞
+2. 將其貼入你選擇的 AI 平台
+3. 等待研究結果（全面性的結果可能需要 10-20 分鐘）
+4. 審閱引用的來源 —— 驗證關鍵建議
 
-**Pro tip**: Run the same prompt on 2 different platforms and compare results. This catches blind spots and validates recommendations.
+**專業提示：** 在兩個不同的平台上運行相同的提示詞並比較結果。這能捕捉到盲點並驗證建議。
 
-**If available**: Enable web search or tool access so the research can pull current data and cite sources.
+**如果可用：** 請開啟網頁搜索或工具存取權限，以便研究報告能提取當前數據並引用來源。
 
-**Important**: AI knowledge has cutoff dates. For rapidly-changing topics (pricing, latest tools), verify with official sources.
+**重要：** AI 的知識有截斷日期。對於快速變化的主題（定價、最新工具），請與官方來源核對。
 
-Would you like me to adjust anything in the prompt before you begin?"
-
----
+在開始之前，你希望我在提示詞中調整任何內容嗎？"

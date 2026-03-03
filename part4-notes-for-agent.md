@@ -1,547 +1,545 @@
-# Part 4 — Generate AGENTS.md and AI Agent Configuration Files
+# 第四部分 — 生成 AGENTS.md 與 AI 代理人配置文件
 
-I'll help you create the instruction files that will guide your AI coding assistant to build your MVP. These files are what make the magic happen!
+我將協助你建立引導 AI 程式碼助理建構 MVP 的說明檔案。這些檔案正是讓魔法發生的關鍵！
 
 <details>
-<summary><b>Required Documents — Please Attach</b></summary>
+<summary><b>必要文件 — 請附上</b></summary>
 
-### Required:
-1. **PRD Document** (from Part 2) — Defines WHAT to build
-2. **Technical Design Document** (from Part 3) — Defines HOW to build
+### 必要文件：
+1. **PRD 文件**（來自第二部分） — 定義要建置 **什麼**
+2. **技術設計文件**（來自第三部分） — 定義 **如何** 建置
 
-### Optional but Helpful:
-- **Research Findings** (from Part 1) — Additional context
+### 選填但有提供幫助：
+- **研究發現**（來自第一部分） — 額外的背景資訊
 
-Attach these in any format (.txt, .pdf, .docx, .md) or paste if short.
+請以任何格式（.txt, .pdf, .docx, .md）附上這些檔案，若內容較短也可直接貼上。
 
 </details>
 
-After attaching your files, confirm your setup:
+附上檔案後，請確認你的設定：
 
-**A) Technical Level:**
-- A) **Vibe-coder** — AI does everything, I guide and test
-- B) **Developer** — I code with AI assistance
-- C) **Somewhere in between** — Learning while building
+**A) 技術水平：**
+- A) **Vibe-coder** — AI 處理一切，我負責引導與測試
+- B) **開發者 (Developer)** — 我在 AI 輔助下編寫程式碼
+- C) **介於兩者之間** — 在建置過程中邊做邊學
 
-**B) Which AI Tool(s) Will You Use?** (Can select multiple)
-1. **Claude Code** — Terminal-based agent with session memory
-2. **Gemini CLI** — Free terminal agent
-3. **Google Antigravity** — Agent-first IDE
-4. **Cursor** — AI-powered IDE
-5. **VS Code + GitHub Copilot** — IDE with AI extension
-6. **Lovable / v0** — No-code platforms
+**B) 你將使用哪些 AI 工具？**（可複選）
+1. **Claude Code** — 具備會話記憶的終端機代理人
+2. **Gemini CLI** — 免費的終端機代理人
+3. **Google Antigravity** — 代理人優先的 IDE
+4. **Cursor** — AI 驅動的 IDE
+5. **VS Code + GitHub Copilot** — 具備 AI 擴充功能的 IDE
+6. **Lovable / v0** — 無程式碼平台
 
-Please attach files and type: A/B/C and tool numbers (e.g., "A, 1,4"):
+請附上檔案並輸入：A/B/C 以及工具編號（例如："A, 1, 4"）：
 
 ---
 
-## Instructions for AI Assistant
+## AI 助理說明指令
 
 <details>
-<summary><b>Generation Rules & Logic</b></summary>
+<summary><b>生成規則與邏輯</b></summary>
 
-### Your Goal
-You are an expert Tech Lead setting up a **Progressive Disclosure** documentation system for an AI Agent. Your output must be **modular** to prevent context window overload.
+### 你的目標
+你是一位專家級的技術主管 (Tech Lead)，正在為 AI 代理人設定一套 **漸進式揭露 (Progressive Disclosure)** 的文件系統。你的輸出必須是 **模組化** 的，以防止上下文視窗 (Context Window) 過載。
 
-1. **Master Plan (`AGENTS.md`)**: High-level context, roadmap, and active state.
-2. **Detailed Docs (`agent_docs/`)**: Specific implementation details.
-3. **Tool Configs**: Concise pointers to the above.
+1. **主計畫 (`AGENTS.md`)**：提供高層次的背景、藍圖 (Roadmap) 與當前狀態。
+2. **詳細文件 (`agent_docs/`)**：特定的實作細節。
+3. **工具配置 (Tool Configs)**：指向上述文件的簡要指標。
 
-### Content Extraction Guidelines
-- **From PRD:** Extract exact feature names, user stories, success metrics, and constraints.
-- **From Tech Design:** Extract exact tech stack, architecture decisions, and implementation approaches.
-- **Language Level:** Adjust explanations in `agent_docs/` based on user's technical level (A/B/C).
-  - **Level A (Vibe-coder):** Explain *concepts* simply, focus on "what to do next".
-  - **Level B (Developer):** Focus on *architecture*, patterns, and best practices.
-- **Be Specific:** Replace all bracketed placeholders with actual project details.
-- **Keep Examples:** Include code examples with comments explaining the "why".
+### 內容提取準則
+- **來自 PRD：** 提取準確的功能名稱、使用者故事、成功指標與限制條件。
+- **來自技術設計：** 提取準確的技術棧、架構決策與實作方法。
+- **語言水平：** 根據使用者的技術水平 (A/B/C) 調整 `agent_docs/` 中的解釋方式。
+  - **等級 A (Vibe-coder)：** 用簡單的方式解釋 **概念**，專注於「下一步該做什麼」。
+  - **等級 B (開發者)：** 專注於 **架構**、模式與最佳實踐。
+- **務求具體：** 將所有方括號佔位符替換為實際的專案細節。
+- **保留範例：** 包含附帶「原因」說明的程式碼範例。
 
-### High-Order Prompts (Meta-Cognition)
-Include these behavioral instructions in AGENTS.md to improve agent reasoning:
-
-```markdown
-## How I Should Think
-1. **Understand Intent First**: Before answering, identify what the user actually needs
-2. **Ask If Unsure**: If critical information is missing, ask before proceeding
-3. **Plan Before Coding**: Propose a plan, ask for approval, then implement
-4. **Verify After Changes**: Run tests/linters or manual checks after each change
-5. **Explain Trade-offs**: When recommending something, mention alternatives
-```
-
-### Plan → Execute → Verify (Required)
-- **Plan:** Outline a brief approach and ask for approval before coding.
-- **Plan Mode:** If the tool supports Plan/Reflect mode, use it for this step.
-- **Execute:** Implement one feature at a time.
-- **Verify:** Run tests/linters or manual checks after each feature; fix before moving on.
-
-### Context & Memory Guidance
-- Treat `AGENTS.md` and `agent_docs/` as living docs.
-- Use tool config files (`CLAUDE.md`, `GEMINI.md`, `.cursorrules`, etc.) for persistent project rules.
-- Update these files as the project scales (commands, conventions, constraints).
-
-### Optional Multi-Agent/Parallel Work
-- If the tool supports sub-agents or parallel search, delegate exploration or test checks to speed up work.
-
-### Checkpoints & Pre-Commit Hooks
-- Create checkpoints/commits after milestones.
-- Use pre-commit hooks to enforce formatting, linting, and tests where applicable.
-
-### Anti-Patterns to Include
-Add these to tool configs to prevent common AI mistakes:
+### 高階提示詞 (元認知 Meta-Cognition)
+在 AGENTS.md 中包含這些行為指令，以提升代理人的推理能力：
 
 ```markdown
-## What NOT To Do
-- Do NOT delete files without explicit confirmation
-- Do NOT modify database schemas without backup plan
-- Do NOT add features not in the current phase
-- Do NOT skip tests for "simple" changes
-- Do NOT bypass failing tests or pre-commit hooks
-- Do NOT use deprecated libraries or patterns
+## 我應如何思考
+1. **意圖優先**：在回答之前，先確認使用者真正的需求是什麼。
+2. **不確定時請發問**：若缺少關鍵資訊，請先詢問再繼續。
+3. **編碼前先規劃**：提出計畫，徵求批准，然後再實作。
+4. **變更後務必驗證**：在每次變更後執行測試/Lint 或手動檢查。
+5. **解釋權衡因素**：推薦某個方案時，請提及替代方案。
 ```
 
-### Strict Anti-Vibe Engineering Rules
-For developer-level projects, add these to enforce production quality:
+### 計畫 → 執行 → 驗證（必填）
+- **計畫 (Plan)：** 概述簡要方法並在編碼前徵求批准。
+- **計畫模式 (Plan Mode)：** 若工具支援計畫/反思模式，請在此步驟中使用。
+- **執行 (Execute)：** 一次僅實作一個功能。
+- **驗證 (Verify)：** 在每個功能完成後執行測試/Lint 或手動檢查；修復後再繼續。
+
+### 上下文與記憶指引
+- 將 `AGENTS.md` 與 `agent_docs/` 視為動態文件。
+- 使用工具配置文件 (`CLAUDE.md`, `GEMINI.md`, `.cursorrules` 等) 來存放持久性的專案規則。
+- 隨著專案規模擴大更新這些檔案（指令、慣例、限制）。
+
+### 選配的多代理人/並行作業
+- 若工具支援子代理人或並行搜索，請分配探索或測試檢查任務以加快進度。
+
+### 檢查點與 Pre-Commit Hooks
+- 在達成里程碑後建立檢查點/提交 (Commit)。
+- 使用 pre-commit hooks 來執行格式化、Lint 與測試（如適用）。
+
+### 需包含的反模式 (Anti-Patterns)
+將這些加入工具配置中，以防止 AI 犯下常見錯誤：
 
 ```markdown
-## Engineering Constraints
-
-### Type Safety (No Compromises)
-- The `any` type is FORBIDDEN—use `unknown` with type guards
-- All function parameters and returns must be typed
-- Use Zod or similar for runtime validation
-
-### Architectural Sovereignty
-- Routes/controllers handle request/response ONLY
-- All business logic goes in `services/` or `core/`
-- No database calls from route handlers
-
-### Library Governance
-- Check existing `package.json` before suggesting new dependencies
-- Prefer native APIs over libraries (fetch over axios)
-- No deprecated patterns (useEffect for data → use TanStack Query)
-
-### The "No Apologies" Rule
-- Do NOT apologize for errors—fix them immediately
-- Do NOT generate filler text before providing solutions
-- If context is missing, ask ONE specific clarifying question
-
-### Workflow Discipline
-- Pre-commit hooks must pass before commits (or ask if they should be bypassed)
-- If verification fails, fix issues before continuing
+## 絕對不要做的事
+- 未經明確確認，切勿刪除檔案。
+- 未經備援計畫，切勿修改資料庫架構。
+- 切勿加入不在當前階段的功能。
+- 切勿為了「簡單」的變更而跳過測試。
+- 切勿繞過失敗的測試或 pre-commit hooks。
+- 切勿使用過時的函式庫或模式。
 ```
 
-### "Less is More" for Configs
-- Do **NOT** put giant prompt dumps into `CLAUDE.md` or `.cursorrules`.
-- Instead, put that content into `agent_docs/code_patterns.md` or `agent_docs/tech_stack.md`.
-- The config files should merely *point* the AI to the right documentation.
+### 嚴格的反 Vibe 工程規則
+對於開發者級別的專案，加入這些規則以確保生產品質：
+
+```markdown
+## 工程限制
+
+### 類型安全（絕不妥協）
+- 禁止使用 `any` 類型 —— 請使用 `unknown` 搭配類型守衛 (Type guards)。
+- 所有的函式參數與回傳值必須具備類型定義。
+- 使用 Zod 或類似工具進行執行時驗證 (Runtime validation)。
+
+### 架構主權 (Architectural Sovereignty)
+- 路由/控制器「僅」處理請求與回應。
+- 所有商業邏輯均須放入 `services/` 或 `core/`。
+- 路由處理程式中禁止直接調用資料庫。
+
+### 函式庫治理
+- 在建議新的依賴項之前，先檢查現有的 `package.json`。
+- 優先使用原生 API 而非函式庫（例如 fetch 優於 axios）。
+- 禁止使用過時模式（例如使用 useEffect 處理數據 → 請改用 TanStack Query）。
+
+### 「不道歉」原則
+- 不要為錯誤道歉 —— 請立即修復。
+- 在提供解決方案之前，不要生成填充文字。
+- 若缺少上下文，請提出「一個」具體的釐清問題。
+
+### 工作流紀律
+- 提交前必須通過 Pre-commit hooks（或詢問是否應繞過）。
+- 若驗證失敗，請在繼續之前修復問題。
+```
+
+### 配置文件的「少即是多」原則
+- **不要** 在 `CLAUDE.md` 或 `.cursorrules` 中堆填龐大的提示詞。
+- 應將這些內容放入 `agent_docs/code_patterns.md` 或 `agent_docs/tech_stack.md` 中。
+- 配置文件僅應將 AI **指向** 正確的文件說明。
 
 </details>
 
-After receiving the files, extract the following:
+收到檔案後，提取以下內容：
 
-**From PRD (MUST EXTRACT):**
-- Product name and one-line description
-- Primary user story (exact text)
-- All must-have features (exact list)
-- Nice-to-have features (exact list)
-- NOT in MVP features (exact list)
-- Success metrics (all of them)
-- UI/UX requirements (design words/vibe)
-- Timeline and constraints
+**來自 PRD（必須提取）：**
+- 產品名稱與一行描述
+- 主要使用者故事（準確文字）
+- 所有必備功能（準確列表）
+- 加分功能（準確列表）
+- 不在 MVP 中的功能（準確列表）
+- 成功指標（所有指標）
+- UI/UX 需求（設計詞彙/氛圍）
+- 時間線與限制條件
 
-**From Tech Design (MUST EXTRACT):**
-- Complete tech stack (frontend, backend, database, deployment)
-- Project structure (exact folder layout)
-- Database schema (if provided)
-- Implementation approach for each feature
-- Deployment platform and steps
-- Budget constraints
-- AI tool recommendations
+**來自技術設計（必須提取）：**
+- 完整的技術棧（前端、後端、資料庫、部署）
+- 專案結構（準確的資料夾佈局）
+- 資料庫架構（如有提供）
+- 每個功能的實作方法
+- 部署平台與步驟
+- 預算限制
+- AI 工具建議
 
 ---
 
-## Generate AGENTS.md (Universal Instructions)
+## 生成 AGENTS.md（通用指令）
 
-### 1. Create `AGENTS.md` (Master Plan)
-Generate this file in the project root. It should be the single source of truth for the project status and high-level goals.
+### 1. 建立 `AGENTS.md`（主計畫）
+在專案根目錄生成此檔案。它應作為專案狀態與高層次目標的單一事實來源。
 
 ```markdown
-# AGENTS.md — Master Plan for [App Name]
+# AGENTS.md — [應用程式名稱] 主計畫
 
-## Project Overview
-**App:** [App Name]
-**Goal:** [One-line description]
-**Stack:** [Tech Stack]
-**Current Phase:** Phase 1 — Foundation
+## 專案概覽
+**應用程式：** [應用程式名稱]
+**目標：** [一行描述]
+**技術棧：** [技術棧內容]
+**當前階段：** 第一階段 — 奠定基礎
 
-## How I Should Think
-1. **Understand Intent First**: Before answering, identify what the user actually needs
-2. **Ask If Unsure**: If critical information is missing, ask before proceeding
-3. **Plan Before Coding**: Propose a plan, ask for approval, then implement
-4. **Verify After Changes**: Run tests/linters or manual checks after each change
-5. **Explain Trade-offs**: When recommending something, mention alternatives
+## 我應如何思考
+1. **意圖優先**：在回答之前，先確認使用者真正的需求是什麼。
+2. **不確定時請發問**：若缺少關鍵資訊，請先詢問再繼續。
+3. **編碼前先規劃**：提出計畫，徵求批准，然後再實作。
+4. **變更後務必驗證**：在每次變更後執行測試/Lint 或手動檢查。
+5. **解釋權衡因素**：推薦某個方案時，請提及替代方案。
 
-## Plan → Execute → Verify
-1. **Plan:** Outline a brief approach and ask for approval before coding.
-2. **Plan Mode:** If supported, use a Plan/Reflect mode for this step.
-3. **Execute:** Implement one feature at a time.
-4. **Verify:** Run tests/linters or manual checks after each feature; fix before moving on.
+## 計畫 → 執行 → 驗證
+1. **計畫 (Plan)：** 概述簡要方法並在編碼前徵求批准。
+2. **計畫模式 (Plan Mode)：** 若支援，請在此步驟中使用計畫/反思模式。
+3. **執行 (Execute)：** 一次僅實作一個功能。
+4. **驗證 (Verify)：** 在每個功能完成後執行測試/Lint 或手動檢查；修復後再繼續。
 
-## Context & Memory
-- Treat `AGENTS.md` and `agent_docs/` as living docs.
-- Use persistent tool configs (`CLAUDE.md`, `GEMINI.md`, `.cursorrules`, etc.) for project rules.
-- Update these files as the project scales (commands, conventions, constraints).
+## 上下文與記憶
+- 將 `AGENTS.md` 與 `agent_docs/` 視為動態文件。
+- 使用持久性的工具配置 (`CLAUDE.md`, `GEMINI.md`, `.cursorrules` 等) 存放專案規則。
+- 隨著專案規模擴大更新這些檔案（指令、慣例、限制）。
 
-## Optional Roles (If Supported)
-- **Explorer:** Scan codebase or docs in parallel for relevant info.
-- **Builder:** Implement features based on the approved plan.
-- **Tester:** Run tests/linters and report failures.
+## 選配角色（若支援）
+- **探索者 (Explorer)：** 並行掃描程式碼庫或文件以獲取相關資訊。
+- **建置者 (Builder)：** 根據批准的計畫實作功能。
+- **測試者 (Tester)：** 執行測試/Lint 並回報失敗。
 
-## Testing & Verification
-- Follow `agent_docs/testing.md` for test strategy.
-- If no tests exist, propose minimal checks before proceeding.
-- Do not move forward when verification fails.
+## 測試與驗證
+- 遵循 `agent_docs/testing.md` 中的測試策略。
+- 若不存在測試，請在繼續之前提出最低限度的檢查方法。
+- 當驗證失敗時，請勿繼續後續步驟。
 
-## Checkpoints & Pre-Commit Hooks
-- Create checkpoints/commits after milestones.
-- Ensure pre-commit hooks pass before commits.
+## 檢查點與 Pre-Commit Hooks
+- 在達成里程碑後建立檢查點/提交 (Commit)。
+- 確保提交前已通過 pre-commit hooks。
 
-## Context Files
-Refer to these for details (load only when needed):
-- `agent_docs/tech_stack.md`: Tech stack & libraries
-- `agent_docs/code_patterns.md`: Code style & patterns
-- `agent_docs/project_brief.md`: Persistent project rules and conventions
-- `agent_docs/product_requirements.md`: Full PRD
-- `agent_docs/testing.md`: Verification strategy and commands
+## 背景文件
+詳情請參閱以下文件（僅在需要時讀取）：
+- `agent_docs/tech_stack.md`：技術棧與函式庫
+- `agent_docs/code_patterns.md`：程式碼風格與模式
+- `agent_docs/project_brief.md`：持久性專案規則與慣例
+- `agent_docs/product_requirements.md`：完整 PRD
+- `agent_docs/testing.md`：驗證策略與指令
 
-## Current State (Update This!)
-**Last Updated:** [Date]
-**Working On:** [Current task]
-**Recently Completed:** [Last completed item]
-**Blocked By:** [Any blockers, or "None"]
+## 當前狀態（請及時更新！）
+**最後更新：** [日期]
+**正在處理：** [當前任務]
+**最近完成：** [上次完成的項目]
+**受阻於：** [任何障礙，或填寫 "無"]
 
-## Roadmap
-### Phase 1: Foundation
-- [ ] Initialize project
-- [ ] Setup database
-- [ ] Set up pre-commit hooks
+## 藍圖 (Roadmap)
+### 第一階段：奠定基礎
+- [ ] 初始化專案
+- [ ] 設定資料庫
+- [ ] 設定 pre-commit hooks
 
-### Phase 2: Core Features
-- [ ] [Feature 1]
-- [ ] [Feature 2]
+### 第二階段：核心功能
+- [ ] [功能 1]
+- [ ] [功能 2]
 
-## What NOT To Do
-- Do NOT delete files without explicit confirmation
-- Do NOT modify database schemas without backup plan
-- Do NOT add features not in the current phase
-- Do NOT skip tests for "simple" changes
-- Do NOT bypass failing tests or pre-commit hooks
+## 絕對不要做的事
+- 未經明確確認，切勿刪除檔案。
+- 未經備援計畫，切勿修改資料庫架構。
+- 切勿加入不在當前階段的功能。
+- 切勿為了「簡單」的變更而跳過測試。
+- 切勿繞過失敗的測試或 pre-commit hooks。
 ```
 
-### 2. Create `agent_docs/` Directory
-Create a folder named `agent_docs` and add these files. **Fill them with RICH DETAIL from the source documents.**
+### 2. 建立 `agent_docs/` 目錄
+建立名為 `agent_docs` 的資料夾並新增以下檔案。**請使用來源文件中的豐富細節填充它們。**
 
 #### `agent_docs/tech_stack.md`
-*Instructions: List every library, version, and setup command from the Tech Design.*
+*說明：列出技術設計中的每個函式庫、版本與設定指令。*
 ```markdown
-# Tech Stack & Tools
-- **Frontend:** [Framework]
-- **Backend:** [Framework]
-- **Database:** [Database]
-- **Styling:** [Library]
+# 技術棧與工具
+- **前端：** [框架]
+- **後端：** [框架]
+- **資料庫：** [資料庫]
+- **樣式設計：** [函式庫]
 
-// [Example component code for their stack]
+// [對應其技術棧的組件程式碼範例]
 ```
 
-## Error Handling
+## 錯誤處理
 ```javascript
-// [Example error handling pattern]
+// [範例錯誤處理模式]
 ```
 
-## Naming Conventions
-- [List conventions]
+## 命名慣例
+- [列出命名慣例]
 ```
 
 #### `agent_docs/project_brief.md`
-*Instructions: Capture persistent project rules, conventions, and workflow expectations. Keep this updated as the project scales.*
+*說明：捕捉持久性專案規則、慣例與工作流預期。隨著專案規模擴大隨時更新。*
 ```markdown
-# Project Brief (Persistent)
-- **Product vision:** [One-line summary]
-- **Coding conventions:** [Naming, formatting, architecture]
-- **Quality gates:** [Tests, pre-commit hooks, review rules]
-- **Key commands:** [Dev/test/build commands]
-- **Update cadence:** [When to refresh this brief]
+# 專案簡介 (持久性)
+- **產品願景：** [一行摘要]
+- **編碼慣例：** [命名、格式、架構]
+- **品質關卡：** [測試、pre-commit hooks、審查規則]
+- **關鍵指令：** [開發/測試/建置指令]
+- **更新頻率：** [何時重新整理此簡介]
 ```
 
 #### `agent_docs/product_requirements.md`
-*Instructions: Copy the core requirements, user stories, and success metrics from the PRD.*
+*說明：複製 PRD 中的核心需求、使用者故事與成功指標。*
 ```markdown
-# Product Requirements
-[Content from PRD]
+# 產品需求
+[來自 PRD 的內容]
 ```
 
 #### `agent_docs/testing.md`
-*Instructions: Define the testing strategy based on the Tech Design.*
+*說明：根據技術設計定義測試策略。*
 ```markdown
-# Testing Strategy
-- **Unit Tests:** [Tool]
-- **E2E Tests:** [Tool]
-- **Manual Checks:** [List]
-- **Pre-commit Hooks:** [Lint/format/tests to run before commit]
-- **Verification Loop:** Run checks after each feature and fix failures
+# 測試策略
+- **單元測試：** [工具]
+- **E2E 測試：** [工具]
+- **手動檢查：** [列表內容]
+- **Pre-commit Hooks：** [提交前執行的 Lint/格式化/測試]
+- **驗證循環：** 每個功能完成後執行檢查並修復失敗點
 ```
 
 #### `agent_docs/resources.md`
-*Instructions: Include for developer-level projects with references to advanced patterns.*
+*說明：針對開發者級別的專案，包含對進階模式的引用。*
 ```markdown
-# Essential Resources
+# 必要資源
 
-## Curated Repositories
-| Repository | Purpose |
+## 精選儲存庫
+| 儲存庫 | 用途 |
 |------------|---------|
-| **PatrickJS/awesome-cursorrules** | Anti-vibe rule templates |
-| **OneRedOak/claude-code-workflows** | Review workflow packs |
-| **matebenyovszky/healing-agent** | Self-healing Python patterns |
-| **modelcontextprotocol/servers** | MCP server implementations |
+| **PatrickJS/awesome-cursorrules** | 反 Vibe 規則模板 |
+| **OneRedOak/claude-code-workflows** | 審查工作包 |
+| **matebenyovszky/healing-agent** | Python 自癒模式 |
+| **modelcontextprotocol/servers** | MCP 伺服器實作 |
 
-## Key Documentation
-- **MCP Protocol:** modelcontextprotocol.io
-- **Playwright Testing:** playwright.dev/docs
-- **AI Prompting Patterns:** See v0.dev system prompt patterns
+## 關鍵文件
+- **MCP 協議：** modelcontextprotocol.io
+- **Playwright 測試：** playwright.dev/docs
+- **AI 提問模式：** 參閱 v0.dev 系統提示模式
 ```
 
 ---
 
-## Generate Tool-Specific Configuration Files
+## 生成工具特定配置文件
 
-Based on the tools they selected, generate the appropriate configuration files below. Each file should reference the AGENTS.md as the primary source of truth and add tool-specific behavior and commands.
+根據他們選擇的工具，生成下方的配置文件。每個檔案都應引用 AGENTS.md 作為主要的真實來源，並加入工具特定的行為與指令。
 
-### For Claude Code Users — CLAUDE.md:
+### 針對 Claude Code 使用者 — CLAUDE.md：
 
 ```markdown
-# CLAUDE.md — Claude Code Configuration for [App Name]
+# CLAUDE.md — [應用程式名稱] 的 Claude Code 配置
 
-## Project Context
-**App:** [App Name]
-**Stack:** [Tech Stack]
-**Stage:** MVP Development
-**User Level:** [Level]
+## 專案背景
+**應用：** [應用程式名稱]
+**技術棧：** [技術棧]
+**階段：** MVP 開發
+**使用者等級：** [等級]
 
-## Directives
-1. **Master Plan:** Always read `AGENTS.md` first. It contains the current phase and tasks.
-2. **Documentation:** Refer to `agent_docs/` for tech stack details, code patterns, and testing guides.
-3. **Plan-First:** Propose a brief plan and wait for approval before coding.
-4. **Incremental Build:** Build one small feature at a time. Test frequently.
-5. **Pre-Commit:** If hooks exist, run them before commits; fix failures.
-6. **No Linting:** Do not act as a linter. Use `npm run lint` if needed.
-7. **Communication:** Be concise. Ask clarifying questions when needed.
+## 指令方針
+1. **主計畫**：務必先閱讀 `AGENTS.md`。它包含當前階段與任務。
+2. **文件**：參閱 `agent_docs/` 以獲得技術棧詳情、程式碼模式與測試指南。
+3. **計畫優先**：在編碼前先提出簡要計畫並等待批准。
+4. **增量建構**：一次僅建置一個小功能。頻繁測試。
+5. **提交前檢查**：若存在 pre-commit hooks，請在提交前執行；修復失敗點。
+6. **不擔任林特 (Linter)**：不要充當 Linter。如有需要，請使用 `npm run lint`。
+7. **溝通**：力求簡潔。必要時提出釐清問題。
 
-## Commands
-- `npm run dev` — Start server
-- `npm test` — Run tests
-- `npm run lint` — Check code style
+## 指令
+- `npm run dev` — 啟動伺服器
+- `npm test` — 執行測試
+- `npm run lint` — 檢查程式碼風格
 ```
 
-### For Cursor Users — .cursorrules:
+### 針對 Cursor 使用者 — .cursorrules：
 
 ```markdown
-# Cursor Rules for [App Name]
+# [應用程式名稱] 的 Cursor 規則
 
-## Project Context
-**App:** [App Name]
-**Stack:** [Tech Stack]
-**Stage:** MVP Development
-**User Level:** [Level]
+## 專案背景
+**應用：** [應用程式名稱]
+**技術棧：** [技術棧]
+**階段：** MVP 開發
+**使用者等級：** [等級]
 
-## Directives
-1. **Master Plan:** Always read `AGENTS.md` first. It contains the current phase and tasks.
-2. **Documentation:** Refer to `agent_docs/` for tech stack details, code patterns, and testing guides.
-3. **Plan-First:** Propose a brief plan and wait for approval before coding.
-4. **Incremental Build:** Build one small feature at a time. Test frequently.
-5. **Pre-Commit:** If hooks exist, run them before commits; fix failures.
-6. **No Linting:** Do not act as a linter. Use `npm run lint` if needed.
-7. **Communication:** Be concise. Ask clarifying questions when needed.
+## 指令方針
+1. **主計畫**：務必先閱讀 `AGENTS.md`。它包含當前階段與任務。
+2. **文件**：參閱 `agent_docs/` 以獲得技術棧詳情、程式碼模式與測試指南。
+3. **計畫優先**：在編碼前先提出簡要計畫並等待批准。
+4. **增量建構**：一次僅建置一個小功能。頻繁測試。
+5. **提交前檢查**：若存在 pre-commit hooks，請在提交前執行；修復失敗點。
+6. **不擔任林特 (Linter)**：不要充當 Linter。如有需要，請使用 `npm run lint`。
+7. **溝通**：力求簡潔。必要時提出釐清問題。
 
-## Commands
-- `npm run dev` — Start server
-- `npm test` — Run tests
-- `npm run lint` — Check code style
+## 指令
+- `npm run dev` — 啟動伺服器
+- `npm test` — 執行測試
+- `npm run lint` — 檢查程式碼風格
 ```
 
-### For Gemini CLI / Antigravity Users — GEMINI.md:
+### 針對 Gemini CLI / Antigravity 使用者 — GEMINI.md：
 
 ```markdown
-# GEMINI.md — Gemini CLI / Antigravity Configuration for [App Name]
+# GEMINI.md — [應用程式名稱] 的 Gemini CLI / Antigravity 配置
 
-## Project Context
-**App:** [App Name]
-**Stack:** [Tech Stack]
-**Stage:** MVP Development
-**User Level:** [Level]
+## 專案背景
+**應用：** [應用程式名稱]
+**技術棧：** [技術棧]
+**階段：** MVP 開發
+**使用者等級：** [等級]
 
-## Directives
-1. **Master Plan:** Always read `AGENTS.md` first. It contains the current phase and tasks.
-2. **Documentation:** Refer to `agent_docs/` for tech stack details, code patterns, and testing guides.
-3. **Plan-First:** Propose a brief plan and wait for approval before coding.
-4. **Incremental Build:** Build one small feature at a time. Test frequently.
-5. **Pre-Commit:** If hooks exist, run them before commits; fix failures.
-6. **No Linting:** Do not act as a linter. Use `npm run lint` if needed.
-7. **Communication:** Be concise. Ask clarifying questions when needed.
+## 指令方針
+1. **主計畫**：務必先閱讀 `AGENTS.md`。它包含當前階段與任務。
+2. **文件**：參閱 `agent_docs/` 以獲得技術棧詳情、程式碼模式與測試指南。
+3. **計畫優先**：在編碼前先提出簡要計畫並等待批准。
+4. **增量建構**：一次僅建置一個小功能。頻繁測試。
+5. **提交前檢查**：若存在 pre-commit hooks，請在提交前執行；修復失敗點。
+6. **不擔任林特 (Linter)**：不要充當 Linter。如有需要，請使用 `npm run lint`。
+7. **溝通**：力求簡潔。必要時提出釐清問題。
 
-## Commands
-- `npm run dev` — Start server
-- `npm test` — Run tests
-- `npm run lint` — Check code style
+## 指令
+- `npm run dev` — 啟動伺服器
+- `npm test` — 執行測試
+- `npm run lint` — 檢查程式碼風格
 ```
 
-### For VS Code + GitHub Copilot Users:
+### 針對 VS Code + GitHub Copilot 使用者：
 
-Create a `.github/copilot-instructions.md` file:
+建立 `.github/copilot-instructions.md` 檔案：
 
 ```markdown
-# GitHub Copilot Instructions for [App Name]
+# [應用程式名稱] 的 GitHub Copilot 指令說明
 
-## Project Context
-**App:** [App Name]
-**Stack:** [Tech Stack]
-**Stage:** MVP Development
+## 專案背景
+**應用：** [應用程式名稱]
+**技術棧：** [技術棧]
+**階段：** MVP 開發
 
-## Directives
-1. Read `AGENTS.md` for the current phase and tasks.
-2. Refer to `agent_docs/` for tech stack details and code patterns.
-3. Follow existing code conventions in the repository.
-4. Write tests for new functionality.
-5. Keep changes incremental and focused.
+## 指令方針
+1. 閱讀 `AGENTS.md` 以了解當前階段與任務。
+2. 參閱 `agent_docs/` 以獲得技術棧詳情與程式碼模式。
+3. 遵循儲存庫中現有的程式編寫慣例。
+4. 為新功能撰寫測試。
+5. 保持變更的增量與專注。
 
-## Commands
-- `npm run dev` — Start server
-- `npm test` — Run tests
-- `npm run lint` — Check code style
+## 指令
+- `npm run dev` — 啟動伺服器
+- `npm test` — 執行測試
+- `npm run lint` — 檢查程式碼風格
 ```
 
 ---
 
-## Final Instructions
+## 最終說明
 
-After generating AGENTS.md and the appropriate configuration files based on their tool selection, say:
+在根據他們選擇的工具生成 AGENTS.md 與適當的配置文件後，請說：
 
-"I've created your AI agent instruction files above! Here's what you need to do:
+"我已經在上放建立了你的 AI 代理人指令檔案！接下來你需要執行以下操作：
 
-## Files to Save:
+## 需儲存的檔案：
 
-1. **AGENTS.md** — Save in your project root directory
-   - This is the universal instruction file ALL AI assistants can read
+1. **AGENTS.md** — 儲存在你的專案根目錄中。
+   - 這是所有 AI 助理都能讀取的通用指令檔案。
 
-2. **agent_docs/** — Create this folder and save the detailed markdown files inside it.
+2. **agent_docs/** — 建立此資料夾，並將詳細的 Markdown 檔案儲存於其中。
 
-3. **Tool-Specific Config Files** (save the ones for your chosen tools):
-   [List the specific files generated based on their selection]
+3. **工具專用配置文件**（儲存你選擇的工具對應的檔案）：
+   [根據其選擇列出生成的具體檔案名稱]
 
-## Your Project Structure Should Now Look Like:
+## 你的專案結構現在應如下所示：
 
 ```
 your-app/
 ├── docs/
-│   ├── research-[AppName].txt
-│   ├── PRD-[AppName]-MVP.md
-│   └── TechDesign-[AppName]-MVP.md
-├── AGENTS.md                    ← Universal instructions
-├── agent_docs/                  ← Detailed documentation
+│   ├── research-[應用名稱].txt
+│   ├── PRD-[應用名稱]-MVP.md
+│   └── TechDesign-[應用名稱]-MVP.md
+├── AGENTS.md                    ← 通用指令
+├── agent_docs/                  ← 詳細文件
 │   ├── tech_stack.md
 │   ├── code_patterns.md
 │   ├── project_brief.md
 │   ├── product_requirements.md
 │   └── testing.md
-├── [Tool-specific files]       ← Based on your selection
-└── (your code will go here)
+├── [工具專用檔案]               ← 根據你的選擇
+└── (你的程式碼將放在這裡)
 ```
 
-## Ready to Build! Here's How to Start:
+## 準備動工！以下是如何開始：
 
-### With [Their Primary Tool]:
+### 使用 [他們的主要工具]：
 
-[Provide specific starting instructions based on their main tool choice, for example:]
+[根據其主要工具選擇提供具體的啟動指引，例如：]
 
-#### If Claude Code:
+#### 如果是 Claude Code：
 ```bash
 cd your-project
-claude init  # If first time
+claude init  # 如果是第一次使用
 claude
-# Then say: "Read CLAUDE.md and AGENTS.md, then start building the MVP"
+# 然後說："閱讀 CLAUDE.md 與 AGENTS.md，然後開始建置 MVP"
 ```
 
-#### If Cursor:
-1. Open your project folder in Cursor
-2. The .cursorrules file will be automatically detected
-3. Start with: "Read AGENTS.md and begin implementing the MVP step by step"
+#### 如果是 Cursor：
+1. 在 Cursor 中開啟進入你的專案資料夾。
+2. .cursorrules 檔案將被自動偵測。
+3. 以此開始："閱讀 AGENTS.md 並開始逐步實作 MVP"
 
-#### If Lovable/v0:
-1. Go to [platform]
-2. Create new project
-3. Paste your PRD content
-4. Say: "Build this following the specifications"
+#### 如果是 Lovable/v0：
+1. 前往該平台網站。
+2. 建立新專案。
+3. 貼上你的 PRD 內容。
+4. 說："遵循規格說明建置此專案"
 
-#### If Gemini CLI:
+#### 如果是 Gemini CLI：
 ```bash
-gemini "Read GEMINI.md, then implement the MVP"
+gemini "閱讀 GEMINI.md，然後實作 MVP"
 ```
 
-#### If Antigravity:
-1. Open the project in Antigravity
-2. Ensure GEMINI.md is loaded as context
-3. Start with: "Read AGENTS.md and begin"
+#### 如果是 Antigravity：
+1. 在 Antigravity 中開啟專案。
+2. 確保載入 GEMINI.md 作為上下文。
+3. 以此開始："閱讀 AGENTS.md 並開始"
 
-## Your First Prompts:
+## 你的第一個提示詞：
 
-Based on your level ([their level]), start with:
+根據你的等級 ([等級])，請以此開始：
 
-**First prompt:**
-"[Suggested first prompt based on their level and tool]"
+**第一個提示詞：**
+"[根據其等級與工具建議的第一個提示詞]"
 
-**Follow-up prompts:**
-- "Show me the current progress"
-- "Test [feature name] and fix any issues"
-- "Set up pre-commit hooks for lint/tests and keep them updated as the project scales"
-- "Make it work on mobile"
-- "Add error handling"
-- "Deploy to [platform from Tech Design]"
+**後續提示詞：**
+- "向我展示目前的進度"
+- "測試 [功能名稱] 並修復任何問題"
+- "設定 pre-commit hooks 用於 Lint/測試，並隨著專案規模擴大隨時更新"
+- "使其在行動裝置上運作"
+- "增加錯誤處理"
+- "部署到 [來自技術設計的平台]"
 
-## Success Checklist:
+## 成功檢核表：
 
-Your setup is complete when:
-- [ ] All files saved in correct locations
-- [ ] Project folder created
-- [ ] AI tool opened and ready
-- [ ] First prompt typed and ready to send
+當滿足以下條件時，你的設定即完成：
+- [ ] 所有檔案均已儲存在正確位置
+- [ ] 專案資料夾已建立
+- [ ] AI 工具已開啟並就緒
+- [ ] 已寫好第一個提示詞並準備發送
 
-## Remember:
+## 請記住：
 
-- The AI will handle the complex coding
-- You guide the direction and test the results
-- Start simple, add features incrementally
-- Test after each feature
-- Update AGENTS.md and tool configs as the project scales
-- Don't hesitate to ask for explanations
+- AI 會處理複雜的程式編寫。
+- 你負責引導方向並測試結果。
+- 從簡單開始，增量地增加功能。
+- 每個功能完成後即進行測試。
+- 隨著專案規模擴大更新 AGENTS.md 與工具配置。
+- 不要猶豫要求解釋。
 
-**You're ready to build! Your AI assistant has all the context it needs. Just start the conversation and watch your MVP come to life!**
+**你準備好開工了！你的 AI 助理已具備所需的所有上下文。只需開始對話，看著你的 MVP 誕生吧！**
 
 <details>
-<summary><b>Troubleshooting</b></summary>
+<summary><b>疑難排解</b></summary>
 
-**If AI seems confused:**
-- Start with: "First, read AGENTS.md completely, then confirm you understand the project"
+**若 AI 看起來很困惑：**
+- 以此開始："首先，完整閱讀 AGENTS.md，然後確認你已理解此專案"
 
-**If AI skips steps:**
-- Say: "Let's go slower. Implement just [specific feature] and show me how to test it"
+**若 AI 跳過步驟：**
+- 說："讓我們放慢腳步。僅實作 [特定功能] 並向我展示如何測試它"
 
-**If you get errors:**
-- Say: "I got this error: [error]. Please explain what it means and how to fix it"
+**若你遇到錯誤：**
+- 說："我遇到了這個錯誤：[錯誤內容]。請解釋其含意及修復方法"
 
-**If AI overcomplicates:**
-- Say: "That seems complex. What's the simplest way to make this work for an MVP?"
+**若 AI 把事情越搞越複雜：**
+- 說："那看起來太複雜了。對 MVP 來說，讓它運作的最簡單方法是什麼？"
 
 </details>
 
-Would you like me to adjust any of the instructions before you start building?"
-
----
+在開始建置之前，你希望我調整任何指令嗎？"

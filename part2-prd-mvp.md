@@ -1,901 +1,899 @@
-# Part 2 — Product Requirements Document (PRD) Generator
+# 第二部分 — 產品需求文件 (PRD) 產生器
 
-I'll help you create a Product Requirements Document (PRD) for your MVP. This document will define WHAT you're building, WHO it's for, and WHY it matters.
+我將協助你為你的 MVP 建立一份產品需求文件 (Product Requirements Document, PRD)。這份文件將定義你正在建構 **什麼**、為 **誰** 而建，以及 **為什麼** 這很重要。
 
 <details>
-<summary><b>Before We Begin — File Upload Instructions</b></summary>
+<summary><b>開始之前 — 檔案上傳說明</b></summary>
 
-### If you have research from Part 1:
-Please attach your research findings in any format:
-- `.txt`, `.pdf`, `.docx`, `.md` files all work
-- Or paste the content directly if it's short
+### 如果你有來自第一部分的研究報告：
+請附上你的研究發現，任何格式皆可：
+- `.txt`, `.pdf`, `.docx`, `.md` 檔案均可
+- 或者如果內容較短，可以直接貼上
 
-### Don't have research yet?
-No problem! We can still create a great PRD. Just let me know and we'll proceed.
+### 還沒有研究報告嗎？
+沒問題！我們仍然可以建立一份出色的 PRD。只需讓我知道，我們即可繼續。
 
 </details>
 
-Once you've attached the file (or indicated you don't have one), please tell me about yourself:
-- A) **Vibe-coder** — Great ideas, limited coding experience, using AI to build
-- B) **Developer** — Experienced programmer
-- C) **Somewhere in between** — Some coding knowledge, still learning
+當你附上檔案（或表示沒有檔案）後，請告訴我關於你的情況：
+- A) **Vibe-coder** — 擁有絕佳點子，程式編寫經驗有限，使用 AI 進行建置
+- B) **開發者 (Developer)** — 經驗豐富的程式設計師
+- C) **介於兩者之間** — 具備一些程式知識，仍在學習中
 
-Please attach your research file (or type "no file") and type A, B, or C:
+請附上你的研究檔案（或輸入 "no file"）並輸入 A, B, 或 C：
 
 ---
 
-## Instructions for AI Assistant
+## AI 助理說明指令
 
 <details>
-<summary><b>Best AI Platforms for PRD Creation</b></summary>
+<summary><b>最適合建立 PRD 的 AI 平台</b></summary>
 
-### Recommended Platforms
-- **Claude** — Excels at structured document planning and consistent formatting
-- **ChatGPT** — Good for rapid iteration and user story generation
-- **Gemini** — Handles large research attachments with extensive context window
+### 推薦平台
+- **Claude** — 擅長結構化的文件規劃與格式的一致性
+- **ChatGPT** — 適合快速迭代與生成使用者故事 (User Stories)
+- **Gemini** — 憑藉龐大的上下文視窗，能處理大型的研究附件
 
-### Choosing the Right Platform
-| Need | Best Choice | Why |
+### 選擇正確的平台
+| 需求 | 最佳選擇 | 原因 |
 |------|-------------|-----|
-| Structured documents | Claude | Consistent formatting, follows templates well |
-| Quick iterations | ChatGPT | Fast responses, good at brainstorming |
-| Large context (research input) | Gemini | Largest context window |
+| 結構化文件 | Claude | 一致的格式，能很好地遵循範本 |
+| 快速迭代 | ChatGPT | 回應迅速，擅長腦力激盪 |
+| 龐大上下文（研究輸入） | Gemini | 擁有最大的上下文視窗 |
 
 </details>
 
-Wait for the user to either:
-1. Attach their research findings file, OR
-2. Indicate they don't have one
+等待使用者執行以下操作之一：
+1. 附上他們的研究發現檔案，或者
+2. 表示他們沒有檔案
 
-If they attach a file, quickly scan it for:
-- Project name and core concept
-- Target users mentioned
-- Technical decisions made
-- Competitor insights
-- Budget/timeline constraints
+如果他們附上了檔案，快速掃描其中的：
+- 專案名稱與核心概念
+- 提到的目標使用者
+- 已做的技術決策
+- 競爭對手見解
+- 預算/時間線限制
 
-Reference these insights during the Q&A process.
+在問答過程中引用這些見解。
 
-> **Slot-Filling Approach**: The Q&A below gathers all required context before PRD generation. Do NOT generate the PRD until all essential slots are filled. If any critical information is missing, ask follow-up questions.
+> **插槽填充法 (Slot-Filling Approach)**：下方的問答旨在 PRD 生成前收集所有必要的背景資訊。在所有基本插槽填充完畢之前，**請勿** 生成 PRD。如果缺少任何關鍵資訊，請提出後續問題。
 
-> **Format Preference**: Keep the PRD concise. Use bullet points and tables where possible, and avoid long paragraphs.
+> **格式偏好**：保持 PRD 簡潔。盡可能使用專案符號 (Bullet points) 與表格，並避免冗長的段落。
 
-### Initial Questions for ALL Users:
+### 針對所有使用者的初步問題：
 
-**Q1:** "What's the name of your product/app? (If undecided, we can brainstorm!)"
+**Q1：** "你的產品/應用程式名稱是什麼？（如果尚未決定，我們可以一起腦力激盪！）"
 
-**Q2:** "In one sentence, what problem does it solve? (Example: 'Helps freelancers track time and invoice clients automatically')"
+**Q2：** "用一句話描述它解決了什麼問題？（例如：'協助自由職業者自動追蹤時間並向客戶開立發票'）"
 
-**Q3:** "What's your launch goal? (Examples: '100 users', '$1000 MRR', 'Replace my day job', 'Learn to build apps')"
+**Q3：** "你的上線目標是什麼？（例如：'100 個使用者'、'1000 美元的每月經常性收入 (MRR)'、'取代我的正職工作'、'學習如何開發應用程式'）"
 
-### Path A — Vibe-Coder Questions:
+### 路徑 A — Vibe-Coder 問題：
 
-**Q4:** "Who will use your app? Describe them like you're explaining to a friend:
-- What do they do? (job, lifestyle)
-- What frustrates them currently?
-- How tech-savvy are they?"
+**Q4：** "誰會使用你的應用程式？請像在跟朋友解釋一樣描述他們：
+- 他們做什麼？（職業、生活方式）
+- 他們目前感到沮喪的地方是什麼？
+- 他們對技術的熟悉程度如何？"
 
-**Q5:** "Tell me the user journey story:
-- Sarah has problem X...
-- She discovers your app...
-- She does Y...
-- Now she's happy because Z
-(Use your own character and story!)"
+**Q5：** "告訴我一個使用者旅程的故事：
+- Sarah 遇到了問題 X...
+- 她發現了你的應用程式...
+- 她執行了 Y...
+- 現在她很開心，因為 Z
+（請使用你自己的角色與故事！）"
 
-**Q6:** "What are the 3-5 MUST-have features for launch? The absolute essentials only!"
+**Q6：** "發佈時有哪些 3-5 個 **必備** 功能？僅限最核心的實質內容！"
 
-**Q7:** "What features are you intentionally saving for version 2? (This keeps MVP simple)"
+**Q7：** "有哪些功能是你刻意保留到第 2 版的？（這能保持 MVP 的簡潔）"
 
-**Q8:** "How will you know it's working? Pick 1-2 simple metrics:
-- Number of signups?
-- Daily active users?
-- Tasks completed?
-- Customer feedback score?"
+**Q8：** "你將如何知道它是否運作良好？選擇 1-2 個簡單指標：
+- 註冊人數？
+- 每日活躍使用者 (DAU)？
+- 完成的任務數量？
+- 客戶回饋評分？"
 
-**Q9:** "Describe the vibe in 3-5 words (Examples: 'Clean, fast, professional' or 'Fun, colorful, friendly')"
+**Q9：** "用 3-5 個詞來描述這種感覺（例如：'簡潔、快速、專業' 或 '有趣、豐富多彩、友善'）"
 
-**Q10:** "Any constraints or non-functional requirements? Budget limits, must launch by date, performance expectations, security/privacy, scalability, compliance, or specific platform needs?"
+**Q10：** "是否有任何限制或非功能性需求？預算限制、必須在特定日期前發佈、效能預期、安全性/隱私、可擴展性、合規性或特定的平台需求？"
 
-### Path B — Developer Questions:
+### 路徑 B — 開發者問題：
 
-**Q4:** "Define your target audience:
-- Primary persona (demographics, role, technical level)
-- Secondary personas (if any)
-- Jobs to be done (what they're hiring your product for)"
+**Q4：** "定義你的目標受眾：
+- 主要人物誌 (Persona)（人口統計資料、角色、技術水平）
+- 次要人物誌（如有）
+- 待完成的工作 (Jobs to be done)（他們為什麼要雇用你的產品）"
 
-**Q5:** "Write 3-5 user stories:
-Primary: 'As a [user type], I want to [action] so that [benefit]'
-(Add 2-4 supporting stories)"
+**Q5：** "編寫 3-5 個使用者故事 (User Stories)：
+主要：'身為一個 [使用者類型]，我想 [執行動作]，以便於 [獲得效益]'
+（新增 2-4 個支援故事）"
 
-**Q6:** "List core MVP features with MoSCoW prioritization:
-- Must have: [3-5 features]
-- Should have: [2-3 features]
-- Could have: [2-3 features]
-- Won't have (this release): [list]"
+**Q6：** "列出 MVP 的核心功能並進行 MoSCoW 優先級排序：
+- Must have (必須具備)：[3-5 個功能]
+- Should have (應該具備)：[2-3 個功能]
+- Could have (可以具備)：[2-3 個功能]
+- Won't have (本次發佈不包含)：[列表內容]"
 
-**Q7:** "Define success metrics (be specific):
-- Activation: [metric and target]
-- Engagement: [metric and target]
-- Retention: [metric and target]
-- Revenue (if applicable): [metric and target]"
+**Q7：** "定義成功指標（請具體說明）：
+- 激活 (Activation)：[指標與目標]
+- 參與 (Engagement)：[指標與目標]
+- 留存 (Retention)：[指標與目標]
+- 收入（如適用）：[指標與目標]"
 
-**Q8:** "Technical and UX requirements:
-- Performance: [requirements]
-- Accessibility: [standards]
-- Platform support: [browsers, devices]
-- Security/Privacy: [requirements]
-- Scalability: [expectations]
-- Design system: [preferences]"
+**Q8：** "技術與 UX 需求：
+- 效能：[需求內容]
+- 無障礙性 (Accessibility)：[標準規範]
+- 平台支援：[瀏覽器、裝置]
+- 安全性/隱私：[需求內容]
+- 可擴展性：[預期目標]
+- 設計系統：[偏好設定]"
 
-**Q9:** "Risk assessment:
-- Technical risks: [list]
-- Market risks: [list]
-- Execution risks: [list]"
+**Q9：** "風險評估：
+- 技術風險：[列表內容]
+- 市場風險：[列表內容]
+- 執行風險：[列表內容]"
 
-**Q10:** "Business model and constraints:
-- Monetization strategy (if any)
-- Budget constraints
-- Timeline requirements
-- Compliance/regulatory needs"
+**Q10：** "商業模式與限制：
+- 獲利策略（如有）
+- 預算限制
+- 時間線要求
+- 合規性/監管需求"
 
-### Path C — In-Between Questions:
+### 路徑 C — 介於兩者之間的問題：
 
-**Q4:** "Who are your users and what do they need?
-- Primary user type: [describe]
-- Their main problem: [describe]
-- Current solution they use: [if any]"
+**Q4：** "誰是你的使用者，他們需要什麼？
+- 主要使用者類型：[描述]
+- 他們的主要問題：[描述]
+- 他們目前使用的解決方案：[如有]"
 
-**Q5:** "Walk through the main user flow:
-- User arrives at app because...
-- First thing they see/do...
-- Core action they take...
-- Value they get..."
+**Q5：** "梳理主要的使用者流程：
+- 使用者到達應用程式是因為...
+- 他們看到/做的第一件事是...
+- 他們採取的中心行動是...
+- 他們獲得的價值是..."
 
-**Q6:** "What 3-5 features must be in v1? For each, explain:
-- Feature name
-- What it does
-- Why it's essential"
+**Q6：** "第 1 版必須包含哪 3-5 個功能？針對每個功能請說明：
+- 功能名稱
+- 它的作用
+- 為什麼它是必備的"
 
-**Q7:** "What are you NOT building yet? List features for v2 and why they can wait."
+**Q7：** "你目前 **不** 打算建構什麼？列出第 2 版的功能以及為什麼它們可以等待。"
 
-**Q8:** "How will you measure success?
-- Short term (1 month): [metric]
-- Medium term (3 months): [metric]"
+**Q8：** "你將如何衡量成功？
+- 短期（1 個月）：[指標]
+- 中期（3 個月）：[指標]"
 
-**Q9:** "Design and user experience:
-- Visual style: [describe]
-- Key screens: [list main ones]
-- Mobile responsive? [yes/no/mobile-first]"
+**Q9：** "設計與使用者體驗：
+- 視覺風格：[描述]
+- 關鍵畫面：[列出主要畫面]
+- 行動裝置響應式？[是/否/行動裝置優先]"
 
-**Q10:** "Constraints and requirements:
-- Budget for tools/services: [$X/month]
-- Timeline: [launch date]
-- Non-functional requirements: [performance, security/privacy, scalability, compliance]
-- Any technical preferences from research?"
-
----
-
-## Step 1: Verification Echo (Required)
-
-After completing ALL questions, summarize your understanding back to the user:
-
-**Template:**
-> "Let me confirm I understand your product correctly:
->
-> **Product:** [Name] — [One-line description]
-> **Target User:** [Primary persona description]
-> **Problem:** [Core problem being solved]
-> **Must-Have Features:**
-> 1. [Feature 1]
-> 2. [Feature 2]
-> 3. [Feature 3]
-> **Success Metric:** [Primary metric and target]
-> **Timeline:** [Launch target]
-> **Budget:** [Constraints]
->
-> Is this accurate? Should I adjust anything before creating your PRD?"
-
-Wait for user confirmation. If they correct anything, update your understanding before proceeding.
+**Q10：** "限制與需求：
+- 工具/服務預算：[每月 X 美元]
+- 時間線：[上線日期]
+- 非功能性需求：[效能、安全性/隱私、可擴展性、合規性]
+- 是否有來自研究報告的任何技術偏好？"
 
 ---
 
-## Step 2: Generate PRD Document
+## 步驟 1：驗證回響 (Verification Echo) - 必填
 
-After verification, create a PRD appropriate to their level:
+完成所有問題後，向使用者總結你的理解：
 
-### For Vibe-Coders — PRD-[AppName]-MVP.md:
+**範本：**
+> "讓我確認我是否正確理解你的產品：
+>
+> **產品：** [名稱] — [一行描述]
+> **目標使用者：** [主要人物誌描述]
+> **問題：** [正在解決的核心問題]
+> **必備功能：**
+> 1. [功能 1]
+> 2. [功能 2]
+> 3. [功能 3]
+> **成功指標：** [主要指標與目標]
+> **時間線：** [上線目標]
+> **預算：** [限制內容]
+>
+> 請問這準確嗎？在建立你的 PRD 之前，我有什麼需要調整的地方嗎？"
+
+等待使用者確認。如果他們修正了任何內容，請在繼續之前更新你的理解。
+
+---
+
+## 步驟 2：生成 PRD 文件
+
+驗證後，建立一份適合其水平的 PRD：
+
+### 為 Vibe-coder 建立 — PRD-[AppName]-MVP.md：
 
 ```markdown
-# Product Requirements Document: [App Name] MVP
+# 產品需求文件 (PRD)：[應用程式名稱] MVP
 
-## Product Overview
+## 產品概覽
 
-**App Name:** [Name]
-**Tagline:** [Their one-liner in catchier form]
-**Launch Goal:** [What success looks like]
-**Target Launch:** [Date if provided, otherwise "6-8 weeks"]
+**應用程式名稱：** [名稱]
+**標語 (Tagline)：** [將他們的一句話描述改寫為更具吸引力的形式]
+**上線目標：** [成功的樣子]
+**預計上線：** [如有提供日期，否則填寫 "6-8 週"]
 
-## Who It's For
+## 這是為誰準備的
 
-### Primary User: [Persona Name]
-[User description in conversational language]
+### 主要使用者：[人物誌名稱]
+[使用口語化的語言進行使用者描述]
 
-**Their Current Pain:**
-- [Pain point 1]
-- [Pain point 2]
-- [Pain point 3]
+**他們目前的痛點：**
+- [痛點 1]
+- [痛點 2]
+- [痛點 3]
 
-**What They Need:**
-- [Need 1]
-- [Need 2]
-- [Need 3]
+**他們的需求：**
+- [需求 1]
+- [需求 2]
+- [需求 3]
 
-### Example User Story
-"Meet [persona name], a [description] who struggles with [problem]. Every day they [current situation]. They need [solution] so they can [desired outcome]."
+### 使用者故事範例
+"遇見 [人物誌名稱]，一位正在努力解決 [問題] 的 [描述]。每天他們都 [現況]。他們需要 [解決方案]，以便他們可以 [期望結果]。"
 
-## The Problem We're Solving
+## 我們正在解決的問題
 
-[Expand on their problem statement with context, why it matters, and why now is the right time to solve it]
+[根據背景資訊擴展他們的問題陳述：為什麼這很重要，以及為什麼現在是解決它的正確時機]
 
-**Why Existing Solutions Fall Short:**
-- [Competitor/current solution]: [Why it's not enough]
-- [Competitor/current solution]: [Why it's not enough]
+**為什麼現有的解決方案不足：**
+- [競爭對手/現有方案]：[為什麼不夠好]
+- [競爭對手/現有方案]：[為什麼不夠好]
 
-## User Journey
+## 使用者旅程
 
-### Discovery → First Use → Success
+### 發現 → 首次使用 → 成功
 
-1. **Discovery Phase**
-   - How they find us: [channels]
-   - What catches their attention: [hook]
-   - Decision trigger: [what makes them try]
+1. **發現階段 (Discovery Phase)**
+   - 他們如何找到我們：[管道]
+   - 什麼吸引了他們的注意力：[誘餌/Hook]
+   - 決定性觸發點：[是什麼讓他們決定嘗試]
 
-2. **Onboarding (First 5 Minutes)**
-   - Land on: [first screen/page]
-   - First action: [what they do]
-   - Quick win: [immediate value]
+2. **上手引導 (Onboarding, 前 5 分鐘)**
+   - 降落在：[第一個畫面/頁面]
+   - 第一個動作：[他們做什麼]
+   - 快速達成 (Quick Win)：[立即獲得的價值]
 
-3. **Core Usage Loop**
-   - Trigger: [what brings them back]
-   - Action: [what they do]
-   - Reward: [what they get]
-   - Investment: [what keeps them]
+3. **核心使用循環 (Core Usage Loop)**
+   - 觸發：[是什麼讓他們回來]
+   - 動作：[他們做什麼]
+   - 獎勵：[他們獲得什麼]
+   - 投入：[是什麼留住了他們]
 
-4. **Success Moment**
-   - "Aha!" moment: [when they get it]
-   - Share trigger: [what makes them tell others]
+4. **成功時刻**
+   - "Aha!" Moment：[當他們理解產品價值時]
+   - 分享觸發點：[是什麼讓他們想告訴別人]
 
-## MVP Features
+## MVP 功能
 
-### Must Have for Launch
+### 上線必備功能
 
-#### 1. [Feature Name]
-- **What:** [Simple description]
-- **User Story:** As a [user], I want to [action] so that [benefit]
-- **Success Criteria:**
-  - [ ] [Specific measurable outcome]
-  - [ ] [Specific measurable outcome]
-- **Priority:** P0 (Critical)
+#### 1. [功能名稱]
+- **內容：** [簡單描述]
+- **使用者故事：** 身為 [使用者]，我想 [執行動作]，以便於 [獲得效益]
+- **驗收標準：**
+  - [ ] [具體可衡量的結果]
+  - [ ] [具體可衡量的結果]
+- **優先級：** P0 (關鍵)
 
-#### 2. [Feature Name]
-- **What:** [Description]
-- **User Story:** [Story]
-- **Success Criteria:**
-  - [ ] [Criteria]
-  - [ ] [Criteria]
-- **Priority:** P0 (Critical)
+#### 2. [功能名稱]
+- **內容：** [描述]
+- **使用者故事：** [故事內容]
+- **驗收標準：**
+  - [ ] [標準內容]
+  - [ ] [標準內容]
+- **優先級：** P0 (關鍵)
 
-[Continue for all must-have features]
+[繼續列出所有必備功能]
 
-### Nice to Have (If Time Allows)
-- **[Feature]**: [Quick description]
-- **[Feature]**: [Quick description]
+### 加分功能（如有餘裕）
+- **[功能名稱]**：[快速描述]
+- **[功能名稱]**：[快速描述]
 
-### NOT in MVP (Saving for Later)
-- **[Feature]**: Will add after [trigger/milestone]
-- **[Feature]**: Will add after [trigger/milestone]
-- **[Feature]**: Will add after [trigger/milestone]
+### 不在 MVP 中（保留供日後使用）
+- **[功能名稱]**：將在 [觸發點/里程碑] 後新增
+- **[功能名稱]**：將在 [觸發點/里程碑] 後新增
+- **[功能名稱]**：將在 [觸發點/里程碑] 後新增
 
-*Why we're waiting: Keeps MVP focused and launchable in [timeframe]*
+*為什麼我們要等待：為了保持 MVP 的專注度，並能在 [時間表] 內上線*
 
-## How We'll Know It's Working
+## 我們將如何知道它是否運作良好
 
-### Launch Success Metrics (First 30 Days)
-| Metric | Target | Measure |
+### 上線成功指標（前 30 天）
+| 指標 | 目標 | 衡量方式 |
 |--------|--------|---------|
-| [Metric name] | [Target number] | [How to measure] |
-| [Metric name] | [Target number] | [How to measure] |
+| [指標名稱] | [目標數據] | [如何衡量] |
+| [指標名稱] | [目標數據] | [如何衡量] |
 
-### Growth Metrics (Months 2-3)
-| Metric | Target | Measure |
+### 成長指標（第 2-3 個月）
+| 指標 | 目標 | 衡量方式 |
 |--------|--------|---------|
-| [Metric name] | [Target number] | [How to measure] |
+| [指標名稱] | [目標數據] | [如何衡量] |
 
-## Look & Feel
+## 外觀與感受 (Look & Feel)
 
-**Design Vibe:** [Their 3-5 words]
+**設計氛圍：** [他們的 3-5 個詞]
 
-**Visual Principles:**
-1. [Principle based on their description]
-2. [Principle based on their description]
-3. [Principle based on their description]
+**視覺原則：**
+1. [基於其描述的原則]
+2. [基於其描述的原則]
+3. [基於其描述的原則]
 
-**Key Screens/Pages:**
-1. **[Screen name]**: [Purpose]
-2. **[Screen name]**: [Purpose]
-3. **[Screen name]**: [Purpose]
+**關鍵畫面/頁面：**
+1. **[畫面名稱]**：[用途]
+2. **[畫面名稱]**：[用途]
+3. **[畫面名稱]**：[用途]
 
-### Simple Wireframe
+### 簡單線框圖 (Wireframe)
 ```
-[Main Screen/Homepage]
+[主畫面/首頁]
 ┌─────────────────────────┐
-│     [Header/Logo]       │
+│     [頁首/標誌]         │
 ├─────────────────────────┤
 │                         │
-│   [Hero/Main Action]    │
+│   [主標題/核心動作]     │
 │                         │
 ├─────────────────────────┤
-│ [Feature 1] [Feature 2] │
+│ [功能 1]    [功能 2]    │
 ├─────────────────────────┤
-│     [Secondary CTA]     │
+│     [次要呼籲動作]      │
 └─────────────────────────┘
 ```
 
-## Technical Considerations
+## 技術考量
 
-**Platform:** [Web/Mobile/Both]
-**Responsive:** [Yes, mobile-first]
-**Performance:** Page load < 3 seconds
-**Accessibility:** WCAG 2.1 AA minimum
-**Security/Privacy:** [Basic requirements, data sensitivity]
-**Scalability:** [Expected user growth or constraints]
+**平台：** [網頁/行動裝置/兩者皆有]
+**響應式：** [是，行動裝置優先]
+**效能：** 頁面載入時間 < 3 秒
+**無障礙性：** 至少符合 WCAG 2.1 AA 標準
+**安全性/隱私：** [基本需求、數據敏感度]
+**可擴展性：** [預期使用者增長或限制]
 
-## Quality Standards
+## 品質標準
 
-**What This App Will NOT Accept:**
-- Placeholder content in production ("Lorem ipsum", sample images)
-- Broken features — everything listed works or isn't included
-- Skipping mobile testing before launch
-- Ignoring accessibility basics
+**此應用程式不接受以下情況：**
+- 生產環境中的預留位置內容（"Lorem ipsum"、範例圖片）
+- 損壞的功能 —— 列出的所有內容都必須能運作，否則就不應包含
+- 上線前省略行動裝置測試
+- 忽視基本的無障礙設定
 
-*These standards will be enforced by the AI coding assistant.*
+*這些標準將由 AI 程式碼助理強制執行。*
 
-## Budget & Constraints
+## 預算與限制
 
-**Development Budget:** [$X or "Minimal — using free/cheap tools"]
-**Monthly Operating:** [$X estimated]
-**Timeline:** [X weeks to launch]
-**Team:** [Solo/team size]
+**開發預算：** [X 美元或 "極小 —— 使用免費/廉價工具"]
+**每月運作費用：** [估計為 X 美元]
+**時間線：** [X 週後上線]
+**團隊：** [個人/團隊規模]
 
-## Open Questions & Assumptions
-- [Open question]
-- [Key assumption]
+## 開放性問題與假設
+- [開放性問題]
+- [關鍵假設]
 
-## Launch Strategy (Brief)
+## 上線策略（簡述）
 
-**Soft Launch:** [Approach]
-**Target Users:** [How many]
-**Feedback Plan:** [How to collect]
-**Iteration Cycle:** [How often to update]
+**試營運 (Soft Launch)：** [方法]
+**目標使用者：** [多少人數]
+**回饋計畫：** [如何收集]
+**迭代週期：** [更新頻率]
 
-## Definition of Done for MVP
+## MVP 完成定義 (Definition of Done)
 
-The MVP is ready to launch when:
-- [ ] All P0 features are functional
-- [ ] Basic error handling works
-- [ ] It works on mobile and desktop
-- [ ] One complete user journey works end-to-end
-- [ ] Basic analytics are tracking
-- [ ] Friends/family test is complete
-- [ ] Deployment is automated
+當滿足以下條件時，MVP 即可上線：
+- [ ] 所有 P0 功能均可正常運作
+- [ ] 具備基本的錯誤處理
+- [ ] 在行動裝置與桌面裝置上均可運作
+- [ ] 一個完整的使用者旅程可以從頭到尾運作
+- [ ] 已追蹤基本分析數據
+- [ ] 完成親友測試
+- [ ] 部署已自動化
 
-## Next Steps
+## 後續步驟
 
-After this PRD is approved:
-1. Create Technical Design Document (Part 3)
-2. Set up development environment
-3. Build MVP with AI assistance
-4. Test with 5-10 beta users
-5. Launch!
+在此 PRD 批准後：
+1. 建立技術設計文件（第三部分）
+2. 設定開發環境
+3. 在 AI 協助下建置 MVP
+4. 與 5-10 個測試使用者進行測試
+5. 上線！
 
 ---
-*Document created: [Date]*
-*Status: Draft — Ready for Technical Design*
+*文件建立日期：[日期]*
+*狀態：草案 —— 準備進行技術設計*
 ```
 
-### For Developers — PRD-[AppName]-MVP.md:
+### 為開發者建立 — PRD-[AppName]-MVP.md：
 
 ```markdown
-# Product Requirements Document: [App Name] MVP
+# 產品需求文件 (PRD)：[應用程式名稱] MVP
 
-## Executive Summary
+## 執行摘要
 
-**Product:** [Name]
-**Version:** MVP (1.0)
-**Document Status:** [Draft/Final]
-**Last Updated:** [Date]
+**產品：** [名稱]
+**版本：** MVP (1.0)
+**文件狀態：** [草案/定稿]
+**最後更新：** [日期]
 
-### Product Vision
-[Expanded vision statement based on their input]
+### 產品願景
+[根據其輸入內容擴充願景聲明]
 
-### Success Criteria
-[High-level success metrics and targets]
+### 成功準則
+[高層次的成功指標與目標]
 
-## Problem Statement
+## 問題陳述
 
-### Problem Definition
-[Detailed problem analysis with market context]
+### 問題定義
+[結合市場背景的詳細問題分析]
 
-### Impact Analysis
-- **User Impact:** [Quantified where possible]
-- **Market Impact:** [Size and opportunity]
-- **Business Impact:** [Revenue/growth potential]
+### 影響分析
+- **使用者影響：** [盡可能量化]
+- **市場影響：** [規模與機會]
+- **商業影響：** [收入/成長潛力]
 
-## Target Audience
+## 目標受眾
 
-### Primary Persona: [Name]
-**Demographics:**
-- [Age, location, income, etc.]
+### 主要人物誌：[名稱]
+**人口統計：**
+- [年齡、地點、收入等]
 
-**Psychographics:**
-- [Behaviors, preferences, values]
+**心理統計：**
+- [行為、偏好、價值觀]
 
-**Jobs to Be Done:**
-1. [Functional job]
-2. [Emotional job]
-3. [Social job]
+**待完成的工作 (Jobs to Be Done)：**
+1. [功能性工作]
+2. [情感性工作]
+3. [社交性工作]
 
-**Current Solutions & Pain Points:**
-| Current Solution | Pain Points | Our Advantage |
+**目前解決方案與痛點：**
+| 目前解決方案 | 痛點 | 我們的優勢 |
 |-----------------|-------------|---------------|
-| [Solution] | [Problems] | [How we're better] |
+| [方案內容] | [問題內容] | [我們如何做得更好] |
 
-### Secondary Personas
-[If applicable, brief descriptions]
+### 次要人物誌
+[如有，請簡要描述]
 
-## User Stories
+## 使用者故事 (User Stories)
 
-### Epic: [Core Epic Name]
+### 史詩 (Epic)：[核心史詩名稱]
 
-**Primary User Story:**
-"As a [user type], I want to [action] so that [benefit]"
+**主要使用者故事：**
+"身為一個 [使用者類型]，我想 [執行動作]，以便於 [獲得利益]"
 
-**Acceptance Criteria:**
-- [ ] [Specific criterion]
-- [ ] [Specific criterion]
-- [ ] [Specific criterion]
+**驗收標準 (Acceptance Criteria)：**
+- [ ] [具體準則]
+- [ ] [具體準則]
+- [ ] [具體準則]
 
-### Supporting User Stories
-1. "As a [user], I want to [action] so that [benefit]"
-   - AC: [Criteria]
-2. "As a [user], I want to [action] so that [benefit]"
-   - AC: [Criteria]
+### 支援性使用者故事
+1. "身為一個 [使用者]，我想 [執行動作]，以便於 [獲得利益]"
+   - AC：[準則內容]
+2. "身為一個 [使用者]，我想 [執行動作]，以便於 [獲得利益]"
+   - AC：[準則內容]
 
-[Continue for all stories]
+[列出所有故事]
 
-## Functional Requirements
+## 功能需求
 
-### Core Features (MVP — P0)
+### 核心功能 (MVP — P0)
 
-#### Feature 1: [Name]
-- **Description:** [Detailed description]
-- **User Value:** [Why users need this]
-- **Business Value:** [Why business needs this]
-- **Acceptance Criteria:**
-  - [ ] [Specific measurable criterion]
-  - [ ] [Specific measurable criterion]
-- **Dependencies:** [Technical or business dependencies]
-- **Estimated Effort:** [T-shirt size or points]
+#### 功能 1：[名稱]
+- **說明：** [詳細描述]
+- **使用者價值：** [為什麼使用者需要它]
+- **商業價值：** [為什麼業務需要它]
+- **驗收標準：**
+  - [ ] [具體可衡量的準則]
+  - [ ] [具體可衡量的準則]
+- **依賴關係：** [技術或業務依賴性]
+- **預計工作量：** [T-shirt size 或點數]
 
-[Repeat for all P0 features]
+[重複所有 P0 功能]
 
-### Should Have (P1)
-[Brief list with rationale for post-MVP]
+### 應該具備 (Should Have, P1)
+[簡要列表及 MVP 後處理的理由]
 
-### Could Have (P2)
-[Brief list with rationale]
+### 可以具備 (Could Have, P2)
+[簡要列表及理由]
 
-### Out of Scope (Won't Have)
-- [Feature]: [Why excluded]
-- [Feature]: [Why excluded]
+### 範圍外（不包含）
+- [功能]：[排除的原因]
+- [功能]：[排除的原因]
 
-## Non-Functional Requirements
+## 非功能性需求
 
-### Performance
-- **Page Load:** < 2 seconds (p95)
-- **API Response:** < 200ms (p95)
-- **Concurrent Users:** Support 1,000
-- **Uptime:** 99.9% availability
+### 效能
+- **頁面載入：** < 2 秒 (p95)
+- **API 回應：** < 200ms (p95)
+- **並行使用者：** 支援 1,000 人
+- **可用性 (Uptime)：** 99.9% 可用性
 
-### Security
-- **Authentication:** [Method]
-- **Authorization:** [RBAC/ACL approach]
-- **Data Protection:** [Encryption standards]
-- **Compliance:** [GDPR/CCPA/etc.]
+### 安全性
+- **身份驗證 (Authentication)：** [方法]
+- **授權 (Authorization)：** [RBAC/ACL 方法]
+- **數據保護：** [加密標準]
+- **合規性：** [GDPR/CCPA/等]
 
-### Usability
-- **Accessibility:** WCAG 2.1 AA
-- **Browser Support:** Chrome, Safari, Firefox, Edge (latest 2 versions)
-- **Mobile Support:** Responsive design, iOS 14+, Android 10+
-- **Internationalization:** [If applicable]
+### 易用性
+- **無障礙性：** WCAG 2.1 AA
+- **瀏覽器支援：** Chrome, Safari, Firefox, Edge (最新 2 個版本)
+- **行動裝置支援：** 響應式設計，iOS 14+, Android 10+
+- **國際化：** [如適用]
 
-### Scalability
-- **User Growth:** Support 10x growth without architecture change
-- **Data Growth:** [Expectations]
-- **Geographic Distribution:** [Requirements]
+### 可擴展性
+- **使用者成長：** 在不更改架構的情況下支援 10 倍增長
+- **數據增長：** [預期目標]
+- **地理分佈：** [需求內容]
 
-## Quality Standards (Anti-Vibe Rules)
+## 品質標準（反 Vibe 規則）
 
-### Code Quality Requirements
-- **Type Safety:** Strict TypeScript, no `any` types allowed
-- **Architecture:** Thin controllers — logic in services only
-- **Error Handling:** Explicit error types, no swallowed exceptions
-- **Testing:** 80% coverage minimum on critical paths
+### 程式碼品質要求
+- **類型安全：** 嚴格的 TypeScript，禁止使用 `any` 類型
+- **架構：** 薄控制器 (Thin controllers) —— 邏輯僅存在於服務 (Services) 中
+- **錯誤處理：** 明確的錯誤類型，禁止吞掉異常 (Swallowed exceptions)
+- **測試：** 關鍵路徑的測試覆蓋率至少達 80%
 
-### Design Quality Requirements
-- **Design System:** Use design tokens only — no raw hex/pixel values
-- **Accessibility:** WCAG 2.1 AA verified
-- **Performance:** Core Web Vitals in green zone
+### 設計品質要求
+- **設計系統：** 僅使用設計標記 (Design tokens) —— 禁止使用原始色碼/像素值
+- **無障礙性：** 經 WCAG 2.1 AA 驗證
+- **效能：** 核心網頁指標 (Core Web Vitals) 處於綠色區域
 
-### What This Project Will NOT Accept
-- Placeholder content in production
-- Features outside current phase scope
-- Skipped tests for "simple" changes
-- Deprecated libraries when modern alternatives exist
+### 本專案不接受的情況
+- 生產環境中的預留位置內容
+- 超出當前階段範圍的功能
+- 為了 "簡單" 更改而跳過測試
+- 在有現代替代方案的情況下仍使用過時的函式庫
 
-## UI/UX Requirements
+## UI/UX 需求
 
-### Design Principles
-1. [Principle with explanation]
-2. [Principle with explanation]
-3. [Principle with explanation]
+### 設計原則
+1. [附帶說明的原則]
+2. [附帶說明的原則]
+3. [附帶說明的原則]
 
-### Information Architecture
+### 資訊架構 (Information Architecture)
 ```
-├── Landing Page
-├── Authentication
-│   ├── Sign Up
-│   ├── Sign In
-│   └── Password Reset
-├── Dashboard
-│   ├── [Section]
-│   └── [Section]
-├── [Core Feature Area]
-│   ├── [Sub-feature]
-│   └── [Sub-feature]
-└── Settings/Profile
+├── 登陸頁面 (Landing Page)
+├── 身份驗證
+│   ├── 註冊
+│   ├── 登入
+│   └── 密碼重設
+├── 儀表板 (Dashboard)
+│   ├── [區塊]
+│   └── [區塊]
+├── [核心功能區]
+│   ├── [子功能]
+│   └── [子功能]
+└── 設定/個人資料
 ```
 
-### Key User Flows
+### 關鍵使用者流程
 
-#### Flow 1: [Name]
+#### 流程 1：[名稱]
 ```mermaid
 graph LR
-    A[Entry Point] --> B[Action 1]
-    B --> C{Decision}
-    C -->|Yes| D[Action 2]
-    C -->|No| E[Alternative]
-    D --> F[Success State]
+    A[入口點] --> B[動作 1]
+    B --> C{決策}
+    C -->|是| D[動作 2]
+    C -->|否| E[替代方案]
+    D --> F[成功狀態]
 ```
 
-[Include 2-3 critical flows]
+[包含 2-3 個關鍵流程]
 
-## Success Metrics
+## 成功指標
 
-### North Star Metric
-[Single most important metric]
+### 北極星指標 (North Star Metric)
+[單一最重要的指標]
 
-### OKRs for MVP (First 90 Days)
+### MVP OKRs（前 90 天）
 
-**Objective 1:** [Objective]
-- KR1: [Measurable result]
-- KR2: [Measurable result]
-- KR3: [Measurable result]
+**目標 1：** [內容]
+- KR1：[可衡量的結果]
+- KR2：[可衡量的結果]
+- KR3：[可衡量的結果]
 
-### Metrics Framework
-| Category | Metric | Target | Measurement |
+### 指標框架
+| 類別 | 指標 | 目標 | 測量方式 |
 |----------|--------|--------|-------------|
-| Acquisition | [Metric] | [Target] | [Tool/Method] |
-| Activation | [Metric] | [Target] | [Tool/Method] |
-| Retention | [Metric] | [Target] | [Tool/Method] |
-| Revenue | [Metric] | [Target] | [Tool/Method] |
-| Referral | [Metric] | [Target] | [Tool/Method] |
+| 獲取 (Acquisition) | [指標] | [目標] | [工具/方法] |
+| 激活 (Activation) | [指標] | [目標] | [工具/方法] |
+| 留存 (Retention) | [指標] | [目標] | [工具/方法] |
+| 收入 (Revenue) | [指標] | [目標] | [工具/方法] |
+| 推薦 (Referral) | [指標] | [目標] | [工具/方法] |
 
-## Constraints & Assumptions
+## 限制與假設
 
-### Constraints
-- **Budget:** [Amount]
-- **Timeline:** [Launch date]
-- **Resources:** [Team size/composition]
-- **Technical:** [Platform/framework constraints]
+### 限制
+- **預算：** [金額]
+- **時間線：** [上線日期]
+- **資源：** [團隊規模/組成]
+- **技術：** [平台/框架限制]
 
-### Assumptions
-- [Assumption about users]
-- [Assumption about market]
-- [Assumption about technology]
+### 假設
+- [關於使用者的假設]
+- [關於市場的假設]
+- [關於技術的假設]
 
-### Open Questions
-- [Open question]
-- [Open question]
+### 開放性問題
+- [問題內容]
+- [問題內容]
 
-### Dependencies
-- [External dependency]
-- [Internal dependency]
+### 依賴關係
+- [外部依賴]
+- [內部依賴]
 
-## Risk Assessment
+## 風險評估
 
-| Risk | Probability | Impact | Mitigation |
+| 風險 | 可能性 | 影響 | 緩解策略 |
 |------|------------|--------|------------|
-| [Risk description] | High/Med/Low | High/Med/Low | [Strategy] |
+| [風險描述] | 高/中/低 | 高/中/低 | [策略內容] |
 
-## MVP Definition of Done
+## MVP 完成定義
 
-### Feature Complete
-- [ ] All P0 features implemented
-- [ ] All acceptance criteria met
-- [ ] Code review completed
+### 功能完備
+- [ ] 所有 P0 功能已實作
+- [ ] 滿足所有驗收標準
+- [ ] 完成程式碼審查 (Code review)
 
-### Quality Assurance
-- [ ] Unit test coverage > 80%
-- [ ] Integration tests passing
-- [ ] Manual testing completed
-- [ ] Performance benchmarks met
+### 品質保證
+- [ ] 單元測試覆蓋率 > 80%
+- [ ] 整合測試通過
+- [ ] 完成手動測試
+- [ ] 達到效能基準
 
-### Documentation
-- [ ] API documentation complete
-- [ ] User documentation drafted
-- [ ] Deployment guide created
+### 文件說明
+- [ ] API 文件完備
+- [ ] 使用者文件草案完成
+- [ ] 已建立部署指南
 
-### Release Ready
-- [ ] Staging environment validated
-- [ ] Monitoring/alerting configured
-- [ ] Rollback plan documented
-- [ ] Launch communication prepared
+### 發佈準備
+- [ ] 暫存環境 (Staging environment) 已驗證
+- [ ] 已配置監控/告警
+- [ ] 記錄了回滾方案
+- [ ] 準備好上線溝通內容
 
-## Appendices
+## 附錄
 
-### A. Competitive Analysis
-[Summary from research]
+### A. 競爭對手分析
+[研究報告摘要]
 
-### B. Technical Specifications
-[Link to Technical Design Document]
+### B. 技術規格
+[技術設計文件連結]
 
-### C. Mockups/Wireframes
-[Links or embedded images]
+### C. 模擬圖/線框圖
+[連結或嵌入圖片]
 
 ---
-*PRD Version: 1.0*
-*Next Review: [Date]*
-*Owner: [Name]*
-*Stakeholders: [List]*
+*PRD 版本：1.0*
+*下次評選：[日期]*
+*負責人：[姓名]*
+*利益相關者：[列表]*
 ```
 
-### For In-Between Users — PRD-[AppName]-MVP.md:
+### 為介於兩者之間的用戶建立 — PRD-[AppName]-MVP.md：
 
 ```markdown
-# Product Requirements Document: [App Name] MVP
+# 產品需求文件 (PRD)：[應用程式名稱] MVP
 
-## Overview
+## 概覽
 
-**Product Name:** [Name]
-**Problem Statement:** [Expanded from their input]
-**MVP Goal:** [Clear, measurable objective]
-**Target Launch:** [Timeframe]
+**產品名稱：** [名稱]
+**問題陳述：** [根據其輸入內容擴展]
+**MVP 目標：** [清晰且可衡量的目標]
+**預計上線：** [時間表]
 
-## Target Users
+## 目標使用者
 
-### Primary User Profile
-**Who:** [User description]
-**Problem:** [What they struggle with]
-**Current Solution:** [What they use now]
-**Why They'll Switch:** [Your unique value]
+### 主要使用者檔案
+**誰：** [使用者描述]
+**問題：** [他們在掙扎什麼]
+**目前的解決方案：** [他們現在使用什麼]
+**為什麼他們會轉換：** [你的獨特價值]
 
-### User Persona: [Name]
-- **Demographics:** [Age range, location, profession]
-- **Tech Level:** [Beginner/Intermediate/Advanced]
-- **Goals:** [What they want to achieve]
-- **Frustrations:** [Current pain points]
+### 使用者人物誌：[名稱]
+- **人口統計：** [年齡範圍、地點、職業]
+- **技術水平：** [初級/中級/進階]
+- **目標：** [他們想要實現什麼]
+- **沮喪點：** [目前的痛點]
 
-## User Journey
+## 使用者旅程
 
-### The Story
-[Step-by-step narrative of user journey through the app]
+### 故事說明
+[使用者在應用程式中的旅程的逐步敘述]
 
-### Key Touchpoints
-1. **Discovery:** [How they find you]
-2. **First Contact:** [Landing page/app store]
-3. **Onboarding:** [First experience]
-4. **Core Loop:** [Regular usage]
-5. **Retention:** [What brings them back]
+### 關鍵接觸點 (Touchpoints)
+1. **發現：** [他們如何找到你]
+2. **第一印象：** [登陸頁面/應用程式商店]
+3. **上手引導 (Onboarding)：** [第一次體驗]
+4. **核心循環 (Core Loop)：** [日常使用]
+5. **留存：** [是什麼讓他們回來]
 
-## MVP Features
+## MVP 功能
 
-### Core Features (Must Have)
+### 核心功能（必備）
 
-#### 1. [Feature Name]
-- **Description:** [What it does]
-- **User Value:** [Why users need it]
-- **Success Criteria:**
-  - Users can [action]
-  - System [behavior]
-  - Data is [state]
-- **Priority:** Critical
+#### 1. [功能名稱]
+- **說明：** [它的作用]
+- **使用者價值：** [為什麼使用者需要它]
+- **驗收標準：**
+  - 使用者可以 [執行動作]
+  - 系統 [行為]
+  - 數據處於 [狀態]
+- **優先級：** 關鍵 (Critical)
 
-#### 2. [Feature Name]
-[Same structure]
+#### 2. [功能名稱]
+[相同結構]
 
-[Continue for 3-5 core features]
+[繼續列出 3-5 個核心功能]
 
-### Future Features (Not in MVP)
-| Feature | Why Wait | Planned For |
+### 未來功能（不在 MVP 中）
+| 功能 | 為什麼等待 | 計劃於 |
 |---------|----------|-------------|
-| [Feature] | [Reason] | Version 2 |
-| [Feature] | [Reason] | Version 2 |
+| [功能內容] | [原因] | 第 2 版 |
+| [功能內容] | [原因] | 第 2 版 |
 
-## Success Metrics
+## 成功指標
 
-### Primary Metrics
-1. **[Metric Name]:** [Target] by [Date]
-   - How to measure: [Method]
-   - Why it matters: [Reasoning]
+### 主要指標
+1. **[指標名稱]：** 在 [日期] 前達到 [目標]
+   - 如何衡量：[方法]
+   - 為什麼重要：[原因]
 
-2. **[Metric Name]:** [Target] by [Date]
-   - How to measure: [Method]
-   - Why it matters: [Reasoning]
+2. **[指標名稱]：** 在 [日期] 前達到 [目標]
+   - 如何衡量：[方法]
+   - 為什麼重要：[原因]
 
-### Secondary Metrics
-- [Metric]: [Target]
-- [Metric]: [Target]
+### 次要指標
+- [指標]：[目標]
+- [指標]：[目標]
 
-## UI/UX Direction
+## UI/UX 方向
 
-**Design Feel:** [Their descriptive words]
-**Inspiration:** [Similar apps/sites they like]
+**設計感：** [他們的描述性詞彙]
+**靈感來源：** [他們喜歡的類似應用程式/網站]
 
-### Key Screens
-1. **[Screen Name]**
-   - Purpose: [What it does]
-   - Key Elements: [What's on it]
-   - User Actions: [What users can do]
+### 關鍵畫面
+1. **[畫面名稱]**
+   - 用途：[它的作用]
+   - 關鍵元素：[畫面上有什麼]
+   - 使用者動作：[使用者可以做什麼]
 
-2. **[Screen Name]**
-   [Same structure]
+2. **[畫面名稱]**
+   [相同結構]
 
-### Design Principles
-- [Principle 1]: [How it applies]
-- [Principle 2]: [How it applies]
-- [Principle 3]: [How it applies]
+### 設計原則
+- [原則 1]：[如何應用]
+- [原則 2]：[如何應用]
+- [原則 3]：[如何應用]
 
-## Technical Considerations
+## 技術考量
 
-**Platform:** [Web/Mobile/Both]
-**Responsive:** [Yes/No/Mobile-first]
-**Performance Goals:**
-- Load time: < 3 seconds
-- Smooth animations (60fps)
-- Works on 3-year-old devices
+**平台：** [網頁/行動裝置/兩者皆有]
+**響應式：** [是/否/行動裝置優先]
+**效能目標：**
+- 載入時間：< 3 秒
+- 流暢動畫 (60fps)
+- 可在 3 年前的裝置上運作
 
-**Security/Privacy:** [Data sensitivity, auth requirements]
-**Scalability:** [Expected user growth or constraints]
+**安全性/隱私：** [數據敏感性、身份驗證需求]
+**可擴展性：** [預期使用者增長或限制]
 
-**Browser/Device Support:**
-- Chrome, Safari, Firefox (latest)
+**瀏覽器/裝置支援：**
+- Chrome, Safari, Firefox (最新版本)
 - iOS 14+, Android 10+
-- Tablet optimized: [Yes/No]
+- 平板電腦優化：[是/否]
 
-## Constraints & Requirements
+## 限制與需求
 
-### Budget
-- Development tools: $[X]/month
-- Hosting/Infrastructure: $[X]/month
-- Third-party services: $[X]/month
-- **Total:** $[X]/month
+### 預算
+- 開發工具：[X] 美元/月
+- 託管/基礎設施：[X] 美元/月
+- 第三方服務：[X] 美元/月
+- **總計：** [X] 美元/月
 
-### Timeline
-- MVP Development: [X weeks]
-- Beta Testing: [X weeks]
-- Launch Target: [Date]
+### 時間線
+- MVP 開發：[X 週]
+- Beta 測試：[X 週]
+- 上線目標：[日期]
 
-### Technical Constraints
-- [Any specific requirements]
-- [Platform limitations]
-- [Integration needs]
+### 技術限制
+- [任何具體需求]
+- [平台限制]
+- [整合需求]
 
-## Open Questions & Assumptions
-- [Open question]
-- [Key assumption]
+## 開放性問題與假設
+- [開放性問題]
+- [關鍵假設]
 
-## Quality Standards
+## 品質標準
 
-**Code Quality:**
-- Use TypeScript when possible — it catches errors early
-- Handle errors explicitly — don't hide them
-- Test the important paths before launch
+**程式碼品質：**
+- 盡可能使用 TypeScript —— 它能及早發現錯誤
+- 明確處理錯誤 —— 不要隱藏它們
+- 上線前測試重要路徑
 
-**Design Quality:**
-- Use consistent colors and spacing (design tokens)
-- Test on mobile before desktop
-- Check accessibility basics (contrast, labels)
+**設計品質：**
+- 使用一致的顏色與間距（設計標記）
+- 在完成桌面版之前先測試行動版
+- 檢查基本的無障礙設定（對比度、標籤）
 
-**What This Project Will NOT Accept:**
-- Placeholder content ("Lorem ipsum") at launch
-- Features that half-work — complete or cut
-- Skipping mobile testing
+**本專案不接受的情況：**
+- 上線時存在預留位置內容 ("Lorem ipsum")
+- 只做到一半的功能 —— 要麼完成，要麼刪除
+- 省略行動裝置測試
 
-## Risk Mitigation
+## 風險緩解
 
-| Risk | Impact | Mitigation Strategy |
+| 風險 | 影響 | 緩解策略 |
 |------|--------|-------------------|
-| [Risk] | [High/Med/Low] | [How to handle] |
-| [Risk] | [High/Med/Low] | [How to handle] |
+| [風險] | [高/中/低] | [如何處理] |
+| [風險] | [高/中/低] | [如何處理] |
 
-## MVP Completion Checklist
+## MVP 完成檢核表
 
-### Development Complete
-- [ ] All core features working
-- [ ] Basic error handling
-- [ ] Mobile responsive
-- [ ] Cross-browser tested
+### 開發完成
+- [ ] 所有核心功能均可運作
+- [ ] 基本錯誤處理
+- [ ] 行動裝置響應式
+- [ ] 跨瀏覽器測試完成
 
-### Launch Ready
-- [ ] Analytics configured
-- [ ] Basic SEO setup
-- [ ] Contact/support method
-- [ ] Privacy policy & terms
+### 上線準備就緒
+- [ ] 已配置分析數據
+- [ ] 完成基本 SEO 設定
+- [ ] 具備聯繫/支援管道
+- [ ] 隱私政策與條款完備
 
-### Quality Checks
-- [ ] Friends & family tested
-- [ ] Core journey works end-to-end
-- [ ] No critical bugs
-- [ ] Performance acceptable
+### 品質檢查
+- [ ] 經過親友測試
+- [ ] 核心旅程可以從頭到尾運作
+- [ ] 無關鍵錯誤 (Critical bugs)
+- [ ] 效能可接受
 
-## Next Steps
+## 後續步驟
 
-1. **Immediate:** Review and approve this PRD
-2. **Next:** Create Technical Design Document (Part 3)
-3. **Then:** Set up development environment
-4. **Build:** Implement with AI assistance
-5. **Test:** Beta with 10-20 users
-6. **Launch:** Go live!
+1. **立即執行：** 審核並批准此 PRD
+2. **接下來：** 建立技術設計文件（第三部分）
+3. **然後：** 設定開發環境
+4. **建置：** 在 AI 協助下實作
+5. **測試：** 與 10-20 個使用者進行 Beta 測試
+6. **上線：** 正式發佈！
 
 ---
-*Created: [Date]*
-*Status: Ready for Technical Design*
-*Questions? [Contact]*
+*建立於：[日期]*
+*狀態：準備進行技術設計*
+*有問題？[聯繫方式]*
 ```
 
 ---
 
-## Final Instructions
+## 最終說明
 
-After generating the appropriate PRD document based on their level, say:
+在根據他們的水平生成適當的 PRD 文件後，請說：
 
-"I've created your Product Requirements Document (PRD) above. This document defines WHAT you're building and WHY.
+"我已經在上方建立了你的產品需求文件 (PRD)。這份文件定義了你正在建構 **什麼** 以及 **為什麼**。
 
-### Self-Verification Checklist
+### 自我驗證檢核表
 
-Before proceeding, let's verify the PRD is complete:
+在繼續之前，讓我們驗證 PRD 是否完整：
 
-| Required Section | Present? |
+| 必要章節 | 是否具備？ |
 |-----------------|----------|
-| Core problem clearly defined | Yes / No |
-| Target user well described | Yes / No |
-| 3-5 must-have features listed | Yes / No |
-| Each feature has user story | Yes / No |
-| Success metrics defined | Yes / No |
-| Constraints acknowledged | Yes / No |
-| NOT-in-MVP features listed | Yes / No |
+| 核心問題定義明確 | 是 / 否 |
+| 目標使用者描述詳盡 | 是 / 否 |
+| 列出 3-5 個必備功能 | 是 / 否 |
+| 每個功能都有使用者故事 | 是 / 否 |
+| 定義了成功指標 | 是 / 否 |
+| 確認了限制條件 | 是 / 否 |
+| 列出不在 MVP 中的功能 | 是 / 否 |
 
-*If any items are missing, I'll add them now.*
+*如果缺少任何項目，我現在會將其補上。*
 
-### Next Steps:
+### 後續步驟：
 
-1. **Review the PRD** — Make sure it captures your vision accurately
-2. **Save the document** as `PRD-[AppName]-MVP.md` in your project folder
-3. **Proceed to Part 3** to create your Technical Design Document
+1. **審閱 PRD** — 確保它準確捕捉了你的願景
+2. **將文件儲存** 為 `PRD-[AppName]-MVP.md` 並放在你的專案資料夾中
+3. **前往第三部分** 以建立你的技術設計文件
 
-The PRD is a living document — update it as you learn from users.
+PRD 是一份動態文件 —— 請根據你從使用者那裡學到的知識隨時更新它。
 
-Would you like me to adjust anything in the PRD before moving on to technical design?"
-
----
+在進入技術設計之前，你希望我在 PRD 中調整任何內容嗎？"
